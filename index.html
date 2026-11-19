@@ -17,7 +17,7 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
 </head>
 <body>
 <header class="mast"><div class="wrap">
-  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><!-- Update this version with each published change. --><span class="version" aria-label="App version 0.1.7">v0.1.7</span><button id="nav" hidden class="btn" type="button">Book shortlist <span class="count" id="count">0</span></button></div></div>
+  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><!-- Update this version with each published change. --><span class="version" aria-label="App version 0.1.8">v0.1.8</span><button id="nav" hidden class="btn" type="button">Book shortlist <span class="count" id="count">0</span></button></div></div>
   <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money well <em>wasted.</em></h1><p>Your 1 STAR reviews of the WORST products to hit the market!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
 </div></header>
 <main class="wrap">
@@ -177,7 +177,7 @@ const featuredRows = [
  ['tower','Tower Vortx Vizion T17102 Air Fryer Oven',2,'22 September 2026','…once one basket is open the other wont work either','Check whether replacement baskets are available and read longer-term reviews as well as first impressions.','1231311','fryer'],
  ['bush','Bush Chrome Desk Fan, 12 Inch',2,'17 July 2026','It is noisier than my other fan ( not a Bush), although it does its job effectively.','If it’s for a bedroom or desk, check noise at the lowest setting before replacing a working fan.','7271090','fan']
 ];
-const featured=featuredRows.map(([id,name,stars,date,snippet,tip,sku,kind,origin],i)=>({id:'review-'+id,name,badge:stars+'-star customer review',stars,date,snippet,tip,kind,origin,pick:i+1,summary:'Before you buy — '+tip,sources:[['Read the reviews on Argos',date+(origin?' · '+origin:''),'https://www.argos.co.uk/product/'+sku+'#reviews']]}));
+const featured=featuredRows.map(([id,name,stars,date,snippet,tip,sku,kind,origin],i)=>({id:'review-'+id,name,badge:stars+'-star customer review',stars,date,snippet,tip,kind,origin,pick:i+1,productUrl:'https://www.argos.co.uk/product/'+sku,summary:'Before you buy — '+tip,sources:[['Read the reviews on Argos',date+(origin?' · '+origin:''),'https://www.argos.co.uk/product/'+sku+'#reviews']]}));
 const $ = id => document.getElementById(id);
 const key = 'mwe-shortlist-v1';
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -196,9 +196,10 @@ function isSaved(id){return saved.some(x=>x.id===id)}
 const shortlistEnabled=false;
 function saveButton(item){if(!shortlistEnabled)return '';const on=isSaved(item.id);return '<button type="button" class="btn '+(on?'':'accent')+'" data-save="'+esc(item.id)+'" aria-pressed="'+on+'">'+(on?'Saved · remove':'+ Shortlist')+'</button>'}
 function caseCard(x){return '<article class="card">'+productThumb(x)+'<header><span class="pill '+esc(x.tone||'')+'">'+esc(x.badge)+'</span></header><p class="number">'+esc(x.label)+'</p><h3>'+esc(x.name)+'</h3><p>'+esc(x.summary)+'</p><details><summary>MWE aside (original, not a review)</summary><div>'+esc(x.angle)+'</div></details>'+listSources(x.sources)+'<div class="actions">'+saveButton(x)+' <button type="button" class="btn" data-search="'+esc(x.name)+'">Find comments</button></div></article>'}
+function viewProduct(x){const url=webUrl(x.productUrl);return url?'<a class="btn accent" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="View product: '+esc(x.name)+'">View product</a>':''}
 function renderFeatured(){
  const value=$('review-filter').value;
- $('review-cards').innerHTML=featured.filter(x=>value==='all'||x.stars===Number(value)).map(x=>'<article class="card review-card">'+productThumb(x)+'<header><span class="pill rating-pill" aria-label="'+x.stars+' out of 5 stars">'+'★'.repeat(x.stars)+'☆'.repeat(5-x.stars)+' · '+x.stars+'/5</span><span class="pick-id">PICK '+String(x.pick).padStart(2,'0')+'</span></header><h3>'+esc(x.name)+'</h3><blockquote>“'+esc(x.snippet)+'”</blockquote><p class="review-tip"><strong>Before you buy</strong> — '+esc(x.tip)+'</p>'+listSources(x.sources)+'<div class="actions">'+saveButton(x)+'</div></article>').join('');
+ $('review-cards').innerHTML=featured.filter(x=>value==='all'||x.stars===Number(value)).map(x=>'<article class="card review-card">'+productThumb(x)+'<header><span class="pill rating-pill" aria-label="'+x.stars+' out of 5 stars">'+'★'.repeat(x.stars)+'☆'.repeat(5-x.stars)+' · '+x.stars+'/5</span><span class="pick-id">PICK '+String(x.pick).padStart(2,'0')+'</span></header><h3>'+esc(x.name)+'</h3><blockquote>“'+esc(x.snippet)+'”</blockquote><p class="review-tip"><strong>Before you buy</strong> — '+esc(x.tip)+'</p>'+listSources(x.sources)+'<div class="actions">'+viewProduct(x)+'</div></article>').join('');
 }
 function renderCases(){const cat=$('filter').value;$('cases').innerHTML=cases.filter(x=>cat==='all'||x.category===cat).map(caseCard).join('')}
 function hitCard(x){return '<article class="card"><header><span class="pill">'+esc(x.badge)+'</span><span class="number">'+esc(x.date)+'</span></header><h3>'+esc(x.name)+'</h3>'+(x.snippet?'<blockquote>'+esc(x.snippet)+'</blockquote>':'')+listSources(x.sources)+'<div class="actions">'+saveButton(x)+'</div></article>'}

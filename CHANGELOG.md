@@ -3,7 +3,7 @@
 ## v0.5.0 — hall of shame
 
 - **Direction change.** The site is now a collection of the worst products we can find, for building a funny book, not a search tool. The search box, tested-listing search, live results and Hacker News panel were removed from the page.
-- **Parked, not deleted.** The live-search Worker (`worker/`), `config.js` and the v0.4.0 page are kept. To bring search back: `git checkout v0.4.0-search -- index.html`, then follow `worker/README.md`.
+- **Parked, not deleted.** The live-search Worker (`worker/`), `config.js` and the v0.4.0 page are kept. To bring search back: `git checkout f557979 -- index.html`, then follow `worker/README.md`.
 - **New content.** `shame[]` in `data/products.js`: 11 products from named independent tests, each with a source link, the date the source was read, a paraphrase of the finding and an original joke (clearly labelled). Seven are from Which? Don't Buy round-ups (UK); four are from Consumer Reports' 2025 worst list as reported by BGR (US models). Safety-critical fails in those articles (child car seat, stroller, blood pressure monitor, cholesterol monitor, smoke alarm) were left out on purpose: not something to joke about. Where a maker disputed a finding, the card says so.
 - **Page.** One grid of everything: customer-ratings pick, tested-and-failed, famous flops, parody. Filters by kind. Each card links to Amazon UK and Argos searches so you can look at the stars yourself.
 - **Book shortlist is back.** "+ Add to book" on each card, notes per product, and "Download book notes" as markdown. It uses the same browser key as before (`mwe-shortlist-v1`), so anything saved earlier shows up again.

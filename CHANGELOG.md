@@ -1,17 +1,24 @@
 # Money Wasting Expert — changelog and Claude handoff
 
+## v0.3.0 — one search box
+
+- Removed the "Check a product" paste checker and its data-entry helper and parser. One search box now sits at the top of the page.
+- Search shows (1) tested listings that match, with their counts: featured picks, watch-list items, and audited products that don't pass; (2) links to search Amazon UK and Argos, plus Google, Reddit and Which?; (3) Hacker News discussion leads. If nothing tested matches, it says "We haven't tested that yet".
+- The ratings rule is unchanged. It still lives in `js/rating.js` and drives the shelf and search.
+- Not possible from a static page: live star counts. Amazon and Argos block browser requests and have no free ratings API. Live results would need a small backend plus a paid ratings data service.
+- Adding a product is now a manual edit of `data/products.js` (see the comment at the top of that file).
+
 ## v0.2.0 — clearer rules, tidier code
 
 - **Stricter pass rule.** Low (1–2★) ratings must now beat high (4–5★) ratings by at least 10% of all ratings, on top of the 50-rating minimum. A 51 v 49 split is "too close", not "worst". The current featured pick still passes (41 low v 31 high of 79). Constants live in `js/rating.js` (`MIN_RATINGS`, `MIN_MARGIN`).
 - **Watch list.** New "Not quite there yet" shelf for products where low beats high but the sample is small or the gap is thin. It stays hidden until `nearMisses[]` in `data/products.js` has an entry. Nothing was invented to fill it.
 - **Checked-on dates.** Cards show when the counts were read (`checked`, YYYY-MM-DD). The frying pan's snapshot date was never recorded, so its card says so. **To do: recheck the Argos page and set `checked` for it.**
-- **Checker produces a data entry.** After checking pasted counts, "Add it to the site" prints a ready-to-paste JSON entry for `featured`, `nearMisses` or `audit`, with today's date. It no longer takes hand-editing in four places.
-- **Parser** also reads `5 stars (26)` style brackets.
+- (Superseded in v0.3.0: the checker, its data-entry helper and the parser were removed.)
 - **Copy.** Hero line is now "Where more buyers gave 1–2 stars than 4–5. Check before you buy!". The version badge opens a "What's new" panel. The audit is titled "What didn't make the cut" and shows the reason for each product. The Hacker News research desk moved below the archive.
 - **Code.** Product data moved to `data/products.js` (edit that, not `index.html`). Ratings logic moved to `js/rating.js`. Removed the disabled book shortlist, "Add a lead" form, photo upload and notes export. Browser data under `mwe-shortlist-v1` is not touched or deleted, so nothing is lost if the shortlist returns.
-- **Tests.** `npm test` (or `node tests/rating.test.js`) runs 27 checks: pass/small/close/tie/no cases, percentage handling, parsing, mismatched totals, and that every featured product in the data passes the live rules and nothing in the audit does.
+- **Tests.** `npm test` (or `node tests/rating.test.js`) runs the ratings checks: pass/small/close/tie/no cases, percentage handling, mismatched totals, and that every featured product in the data passes the live rules and nothing in the audit does.
 
-Known gaps: retailer photos are hotlinked and may break (a text fallback shows). There is still no live ratings scan; counts are pasted by hand.
+Known gaps: retailer photos are hotlinked and may break (a text fallback shows). There is still no live ratings scan; counts are entered by hand.
 
 ## v0.1.12 — ratings evidence and Amazon UK checking
 
@@ -32,5 +39,5 @@ Known gaps: retailer photos are hotlinked and may break (a text fallback shows).
 
 - The app is static GitHub Pages. Page and styles are in `index.html`, product data in `data/products.js`, and the ratings rules in `js/rating.js`. There is no backend, API credential, or live Amazon or Argos ratings scan.
 - For a featured candidate, inspect the exact retailer listing and any variant aggregation first. Store the five raw counts in 1-star through 5-star order with the total, original review URL, short attributed excerpt, and a practical tip. Keep percentages and unverifiable or mismatched data out of the public feed. Recheck snapshots periodically before citing them elsewhere.
-- The original Hacker News tool is still an optional discussion search, separate from retailer rating eligibility. Retailer discovery buttons open search-engine results externally. Checking pasted figures is local and does not submit or publish them.
+- The original Hacker News tool is still an optional discussion search, separate from retailer rating eligibility. Retailer discovery buttons open search-engine results externally.
 - Preserve the paused shortlist data under `mwe-shortlist-v1`. Add each release to the top of this file and to `whatsNew` in `data/products.js`. The version badge reads `whatsNew[0].version`, and a test checks it matches the top heading here.

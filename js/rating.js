@@ -38,29 +38,13 @@
   // Is it a lead worth watching even though it doesn't pass? Low ratings must beat high ratings.
   function isNearMiss(r) { return r.valid && r.margin > 0 && (r.state === 'small' || r.state === 'close'); }
 
-  function parseRatingText(input) {
-    const src = String(input).replace(/ /g, ' ').trim();
-    const values = Array(5).fill(null), totals = new Set(), modes = new Set();
-    for (const m of src.matchAll(/(?:^|\s)([1-5])[ \t]+stars?\b\s*[:–—-]?\s*\(?([\d,]+(?:\.\d+)?)\)?[ \t]*(%|of[ \t]+([\d,]+)\b|(?=\r?\n|$))/gi)) {
-      const star = Number(m[1]) - 1, val = Number(m[2].replaceAll(',', '')), mode = m[3] === '%' ? 'percent' : 'count';
-      if (values[star] !== null && values[star] !== val) return null;
-      values[star] = val; modes.add(mode);
-      if (m[4]) totals.add(Number(m[4].replaceAll(',', '')));
-    }
-    if (values.includes(null) || modes.size !== 1) return null;
-    for (const m of src.matchAll(/^\s*([\d,]+)\s+(?:global\s+|star\s+)?(?:ratings|reviews)\s*$/gim)) totals.add(Number(m[1].replaceAll(',', '')));
-    if (totals.size > 1) return null;
-    const mode = [...modes][0], total = totals.size ? [...totals][0] : (mode === 'count' ? sum(values) : null);
-    return { whole: values, mode, total };
-  }
-
   function displayedRating(r) {
     const unit = r.mode === 'percent' ? '%' : '';
     const fmt = n => Number(n.toFixed(2)).toLocaleString('en-GB') + unit;
     return fmt(r.bad) + ' low (1–2★) · ' + fmt(r.good) + ' high (4–5★) · ' + fmt(r.neutral) + ' neutral (3★)';
   }
 
-  const api = { MIN_RATINGS, MIN_MARGIN, sum, evaluateRating, explain, isNearMiss, parseRatingText, displayedRating };
+  const api = { MIN_RATINGS, MIN_MARGIN, sum, evaluateRating, explain, isNearMiss, displayedRating };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.MWERating = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

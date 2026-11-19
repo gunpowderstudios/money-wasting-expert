@@ -8,7 +8,8 @@
  *              The shelf stays hidden until there is at least one entry.
  * audit[]      Products that were looked at and did NOT pass, kept so the site can show its working.
  *
- * The "Check a product" box on the site prints a ready-made entry you can paste into featured[] or nearMisses[].
+ * To add a product: read the five star counts off the retailer page, copy an existing entry, and change the values.
+ * The search box on the site matches product names in featured[], nearMisses[] and audit[].
  * Never enter percentages as counts, and never guess a count.
  */
 const MWE_DATA = {
@@ -405,6 +406,15 @@ const MWE_DATA = {
   }
  ],
  "whatsNew": [
+  {
+   "version": "v0.3.0",
+   "title": "One search box",
+   "items": [
+    "The “Check a product” paste box is gone. One search box at the top now covers any product.",
+    "Search shows anything we’ve tested (with its 1–2★ v 4–5★ counts), plus links to search Amazon UK and Argos, and discussion leads.",
+    "If we haven’t tested a product, the page says so instead of guessing."
+   ]
+  },
   {
    "version": "v0.2.0",
    "title": "Clearer rules, tidier site",

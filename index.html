@@ -8,14 +8,14 @@
 <style>
 :root{--ink:#221925;--muted:#645969;--paper:#f9f6ef;--white:#fffdf8;--line:#ddd4c9;--purple:#321c39;--lime:#eaf47c;--lav:#eee4f3;--rust:#782f32;--radius:16px}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}button,input,textarea,select{font:inherit}button,a,input,textarea,select{touch-action:manipulation}button{cursor:pointer}a{color:inherit}a:hover{text-decoration-thickness:2px}:focus-visible{outline:3px solid #9d60ac;outline-offset:3px}[hidden]{display:none!important}.wrap{max-width:1200px;margin:auto;padding-inline:28px}.mast{background:var(--purple);color:#fffdf8}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:23px;border-bottom:1px solid #674e70}.brand{display:flex;align-items:center;gap:11px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;font-size:13px;line-height:1.18}.logo{display:grid;place-items:center;background:var(--lime);color:var(--ink);height:41px;width:41px;border-radius:10px;font-size:22px;font-weight:950;transform:rotate(-7deg)}.top-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}.version{color:#e9dce9;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}.top button{background:transparent;color:#fffdf8;border-color:#866c90}.version-btn{font-variant-numeric:tabular-nums;font-size:13px;padding:6px 11px}.version-btn:hover{background:#4a2c53!important}.hero{display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:center;gap:42px;padding-block:48px 58px}.eyebrow,.meta,.section-label{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:850}.eyebrow{color:var(--lime);margin:0 0 14px}h1,h2,h3,p{margin-top:0}h1{font-family:Georgia,serif;line-height:.98;letter-spacing:-.055em;font-size:clamp(48px,8vw,102px);margin-bottom:20px;font-weight:700}.hero-line{white-space:nowrap}h1 em{color:var(--lime);font-weight:inherit}h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.045em;line-height:1.04;margin-bottom:9px}.hero p:last-child{color:#e9dce9;max-width:620px;margin-bottom:0;font-size:18px}.receipt{display:block;background:var(--lime);color:var(--ink);padding:18px 21px 25px;transform:rotate(7deg);box-shadow:8px 12px 0 #1f1024;clip-path:polygon(0 0,100% 0,100% 95%,95% 100%,90% 95%,85% 100%,80% 95%,75% 100%,70% 95%,65% 100%,60% 95%,55% 100%,50% 95%,45% 100%,40% 95%,35% 100%,30% 95%,25% 100%,20% 95%,15% 100%,10% 95%,5% 100%,0 95%);font:700 14px/1.4 ui-monospace,monospace}.receipt strong{display:block;font-size:32px;line-height:1;margin:12px 0}.receipt hr{border:0;border-top:1px dashed;margin:12px 0}.receipt span{display:block}.receipt b{display:block;letter-spacing:.17em;font-size:15px;margin-top:11px}
-main{padding-bottom:50px}.finder{padding:26px;margin-top:34px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);position:relative;box-shadow:0 6px 0 #eadfd5}.finder-heading{display:flex;align-items:start;justify-content:space-between;gap:16px}.finder-heading p,.sub,.fine{color:var(--muted)}.finder-heading p{margin-bottom:16px}.query{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.query input,input,textarea,select{border:1px solid #aa9caf;border-radius:9px;padding:10px 12px;background:var(--white);color:var(--ink);min-width:0}.query input{padding:13px 14px}.btn,.chip{padding:9px 13px;border:1px solid #a392a6;background:var(--white);color:var(--ink);border-radius:9px;font-weight:750;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:7px;line-height:1.25}.btn:hover,.chip:hover{background:var(--lav)}.primary{background:var(--purple);border-color:var(--purple);color:#fffdf8}.primary:hover{background:#593463}.accent{background:var(--lime);border-color:var(--ink)}.accent:hover{background:#f1f7b0}.chips,.links,.actions{display:flex;flex-wrap:wrap;gap:8px}.chips{margin-top:12px}.chip{font-size:14px;border-radius:100px}.chip[aria-pressed=true],.btn[aria-pressed=true]{background:var(--lav);color:var(--ink);border-color:var(--purple)}.fine{font-size:14px;margin:12px 0 0}.links{margin-top:12px;font-size:14px}.links a{padding:4px 0;margin-right:9px;text-underline-offset:3px}.view{margin-top:34px}.view-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:16px}.view-head p{margin-bottom:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:17px;min-width:0;overflow-wrap:anywhere}.card header{display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:9px}.pill{display:inline-block;font-size:12px;font-weight:850;letter-spacing:.035em;padding:4px 8px;border-radius:6px;background:var(--lav);line-height:1.25}.pill.satire{background:#fbe7c7;color:#583913}.pill.test{background:#e9f1c9}.card .number{margin:0;color:var(--rust);font-size:13px;font-weight:800}.card h3{font-family:Georgia,serif;line-height:1.07;letter-spacing:-.035em;font-size:28px;margin-bottom:8px}.card p:not(.fine){margin-bottom:12px}.card .actions{margin-top:auto;padding-top:12px}.sources{padding:0;margin:4px 0 0;list-style:none;font-size:14px}.sources li{border-top:1px solid var(--line);padding:8px 0}.sources a{font-weight:720;text-underline-offset:3px}.sources span{display:block;color:var(--muted)}blockquote{margin:0 0 9px;padding:8px 12px;border-left:3px solid #9f75aa;background:#f5edf6;font-family:Georgia,serif;font-size:17px}.empty{padding:18px;background:var(--lav);border-radius:12px}.stack{display:grid;gap:12px}.footer{border-top:1px solid var(--line);padding-block:24px 32px;color:var(--muted);font-size:14px}.footer p{margin:0}.footer .footer-disclaimer{margin-top:9px}.section-label{margin-bottom:6px;color:var(--rust)}details{margin:12px 0}summary{cursor:pointer;font-weight:750}dialog{width:min(630px,calc(100vw - 28px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);padding:22px}dialog::backdrop{background:#201327ab}.form-grid{display:grid;gap:11px}.form-grid label{display:grid;gap:4px;font-size:14px;font-weight:750}.form-grid textarea{resize:vertical;min-height:78px}.notice{border-left:3px solid #b48a38;padding-left:10px}#status,#storage-message{margin-bottom:0}#status:empty,#storage-message:empty{display:none}.count{font-variant-numeric:tabular-nums}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);position:relative;box-shadow:0 6px 0 #eadfd5}.finder-heading{display:flex;align-items:start;justify-content:space-between;gap:16px}.finder-heading p,.sub,.fine{color:var(--muted)}.finder-heading p{margin-bottom:16px}.query{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.query input,input,textarea,select{border:1px solid #aa9caf;border-radius:9px;padding:10px 12px;background:var(--white);color:var(--ink);min-width:0}.query input{padding:13px 14px}.btn,.chip{padding:9px 13px;border:1px solid #a392a6;background:var(--white);color:var(--ink);border-radius:9px;font-weight:750;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:7px;line-height:1.25}.btn:hover,.chip:hover{background:var(--lav)}.primary{background:var(--purple);border-color:var(--purple);color:#fffdf8}.primary:hover{background:#593463}.accent{background:var(--lime);border-color:var(--ink)}.accent:hover{background:#f1f7b0}.chips,.links,.actions{display:flex;flex-wrap:wrap;gap:8px}.chips{margin-top:12px}.chip{font-size:14px;border-radius:100px}.chip[aria-pressed=true],.btn[aria-pressed=true]{background:var(--lav);color:var(--ink);border-color:var(--purple)}.fine{font-size:14px;margin:12px 0 0}.links{margin-top:12px;font-size:14px}.links a{padding:4px 0;margin-right:9px;text-underline-offset:3px}.view{margin-top:34px}.view-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:16px}.view-head p{margin-bottom:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:17px;min-width:0;overflow-wrap:anywhere}.card header{display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:9px}.pill{display:inline-block;font-size:12px;font-weight:850;letter-spacing:.035em;padding:4px 8px;border-radius:6px;background:var(--lav);line-height:1.25}.pill.satire{background:#fbe7c7;color:#583913}.pill.test{background:#e9f1c9}.card .number{margin:0;color:var(--rust);font-size:13px;font-weight:800}.card h3{font-family:Georgia,serif;line-height:1.07;letter-spacing:-.035em;font-size:28px;margin-bottom:8px}.card p:not(.fine){margin-bottom:12px}.card .actions{margin-top:auto;padding-top:12px}.sources{padding:0;margin:4px 0 0;list-style:none;font-size:14px}.sources li{border-top:1px solid var(--line);padding:8px 0}.sources a{font-weight:720;text-underline-offset:3px}.sources span{display:block;color:var(--muted)}blockquote{margin:0 0 9px;padding:8px 12px;border-left:3px solid #9f75aa;background:#f5edf6;font-family:Georgia,serif;font-size:17px}.empty{padding:18px;background:var(--lav);border-radius:12px}.stack{display:grid;gap:12px}.footer{border-top:1px solid var(--line);padding-block:24px 32px;color:var(--muted);font-size:14px}.footer p{margin:0}.footer .footer-disclaimer{margin-top:9px}.section-label{margin-bottom:6px;color:var(--rust)}details{margin:12px 0}summary{cursor:pointer;font-weight:750}dialog{width:min(630px,calc(100vw - 28px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);padding:22px}dialog::backdrop{background:#201327ab}.form-grid{display:grid;gap:11px}.form-grid label{display:grid;gap:4px;font-size:14px;font-weight:750}.form-grid textarea{resize:vertical;min-height:78px}.notice{border-left:3px solid #b48a38;padding-left:10px}#status,#storage-message{margin-bottom:0}#status:empty,#storage-message:empty{display:none}.count{font-variant-numeric:tabular-nums}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .product-thumb{position:relative;display:grid;place-items:center;aspect-ratio:16/8;margin:0 0 13px;background:var(--thumb-bg,#eee4f3);border:1px solid #22192516;border-radius:11px;overflow:hidden}.product-thumb svg,.product-thumb img{display:block;width:100%;height:100%;max-height:180px;object-fit:contain}.product-thumb figcaption{position:absolute;bottom:6px;right:7px;border-radius:4px;padding:2px 5px;background:#fffdf8e8;color:#4b3e50;font-size:11px;line-height:1.2;font-weight:750}
 .review-board{margin:34px 0 34px}.rating-checker,.rating-audit{margin-top:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white)}.rating-checker h3{font:700 28px/1.1 Georgia,serif}.rating-checker .form-grid{margin-top:14px}.rating-checker textarea{min-height:118px}.rating-result{margin-top:14px;padding:12px 14px;background:var(--lav);border-radius:8px}.rating-proof{padding:9px 10px;margin:0 0 12px;background:#f3efe8;border-radius:7px;font-size:14px}.rating-proof strong{display:block}.rating-audit ul{list-style:none;padding:0}.rating-audit li{font-size:14px;padding:5px 0;border-bottom:1px solid var(--line)}.review-grid .product-thumb{aspect-ratio:16/10}.product-thumb.sourced{background:#fff;padding:10px 10px 25px}.product-thumb.sourced img{max-height:unset;min-height:0;object-fit:contain}.product-thumb.sourced figcaption{background:#f7f3f6;text-decoration-color:#a593a6}.photo-fallback{color:var(--muted);font-size:14px;text-align:center}.review-card .meta{color:var(--muted)}.review-card blockquote{margin:0 0 12px}.review-card .review-tip{font-size:14px;color:#493c4d}.rating-pill{background:#f7e0d1;color:#5f292a}.pick-id{font-size:12px;letter-spacing:.08em;font-weight:850;color:#655369}.waste-note{margin-top:18px;border-radius:var(--radius);padding:19px 21px;background:#eaf0d4;border:1px solid #d6dfbc}.waste-note h3{font:700 29px/1.08 Georgia,serif;letter-spacing:-.03em;margin-bottom:7px}.waste-note p:last-child{margin-bottom:0}.waste-note a{text-underline-offset:3px}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:minmax(0,1fr) 195px;gap:28px}.receipt strong{font-size:27px}}
 @media(min-width:566px) and (max-width:670px){.hero h1{font-size:clamp(41px,7.3vw,49px)}}
 @media(max-width:360px){.hero h1{font-size:clamp(34px,13.15vw,48px)}}
 @media(max-width:565px){.wrap{padding-inline:15px}.top{padding-block:14px}.hero{display:block;padding-block:33px 40px}.receipt{display:none}.finder{padding:16px}.finder-heading,.view-head{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.query{grid-template-columns:1fr}.btn,.chip{min-height:40px}.view-head{gap:10px}}
-.checked{display:block;margin-top:3px;font-weight:600}.checked.missing{color:var(--rust)}.near-shelf{margin-top:26px}.near-shelf h3{font:700 26px/1.1 Georgia,serif;margin-bottom:6px}.pill.watch{background:#fbe7c7;color:#583913}.entry-box{margin-top:12px}.entry-box textarea{width:100%;min-height:210px;font:13px/1.4 ui-monospace,monospace}.whatsnew h3{margin:16px 0 4px}.whatsnew ul{margin:0 0 6px;padding-left:20px}.rule-note{font-size:14px;color:var(--muted)}
+.checked{display:block;margin-top:3px;font-weight:600}.checked.missing{color:var(--rust)}.near-shelf{margin-top:26px}.near-shelf h3{font:700 26px/1.1 Georgia,serif;margin-bottom:6px}.pill.watch{background:#fbe7c7;color:#583913}.result-head{font:700 24px/1.1 Georgia,serif;margin:26px 0 10px}.whatsnew h3{margin:16px 0 4px}.whatsnew ul{margin:0 0 6px;padding-left:20px}
 </style>
 </head>
 <body>
@@ -24,40 +24,33 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:34px;background:var(--w
   <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money<br><span class="hero-line">Wasting <em>Expert</em></span></h1><p>Where more buyers gave 1–2 stars than 4–5. Check before you buy!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
 </div></header>
 <main class="wrap">
+<section class="finder" id="finder" aria-labelledby="finder-title">
+  <div class="finder-heading"><div><p class="section-label">Search any product</p><h2 id="finder-title">Is it a waste of money?</h2><p>Type a product or model. We’ll show anything we’ve tested, and where to check the star ratings yourself.</p></div></div>
+  <form id="search" class="query"><label for="q" class="sr-only">Product or model</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try air fryer, robot vacuum or Rabbit R1" required><button class="btn primary" id="submit-search">Search</button></form>
+  <div class="chips" id="chips"><button type="button" class="chip" data-q="air fryer">Air fryers</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="toaster">Toasters</button><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button></div>
+  <p class="fine">We can’t read live star counts from Amazon or Argos from this page. Products we’ve checked are shown with their counts. For anything else, use the links to open the listing and look at its star breakdown.</p>
+</section>
+<section class="view" id="results" aria-labelledby="results-title" hidden>
+  <div class="view-head"><div><p class="section-label">Search results</p><h2 id="results-title" tabindex="-1">Results</h2></div><button id="close-results" type="button" class="btn">Clear search</button></div>
+  <h3 class="result-head">Products we’ve tested</h3>
+  <div id="tested" class="grid"></div>
+  <h3 class="result-head">Check the ratings yourself</h3>
+  <p class="fine" style="margin-top:0">On Amazon UK, click the star rating on the listing to see the five-star breakdown. On Argos, scroll to Reviews. You’re looking for more 1–2★ than 4–5★.</p>
+  <div id="external" class="links" aria-label="Search other sources"></div>
+  <h3 class="result-head">Discussion leads</h3>
+  <p class="fine" style="margin-top:0">Hacker News stories and comments. These are leads, not buyer reviews.</p>
+  <p id="status" class="fine" role="status"></p><div id="hits" class="grid" style="margin-top:14px"></div>
+</section>
 <section class="view review-board" id="top-reviews" aria-labelledby="top-reviews-title">
   <div class="view-head"><div><p class="section-label">The one- and two-star shelf</p><h2 id="top-reviews-title">More bad ratings than good</h2><p class="sub">Only listings with at least 50 ratings where 1–2 stars beat 4–5 stars by at least a tenth of all ratings. Three stars are neutral. We show the retailer’s figures, not a verdict on every item sold.</p></div><label class="sr-only" for="review-filter">Filter review quotes by star rating</label><select id="review-filter" hidden><option value="all">All qualifying picks</option><option value="1">1-star quotes</option><option value="2">2-star quotes</option></select></div>
   <div id="review-cards" class="grid review-grid"></div>
   <div id="near-shelf" class="near-shelf" hidden><p class="section-label">On the watch list</p><h3>Not quite there yet</h3><p class="sub">Low ratings lead, but there aren’t enough ratings or the gap is too thin to feature. Check back before you buy.</p><div id="near-cards" class="grid review-grid" style="margin-top:14px"></div></div>
   <details class="rating-audit"><summary>What didn’t make the cut</summary><p class="fine">These listings were checked against the ratings test and don’t pass. Some were well rated and others didn’t have enough ratings.</p><ul id="audit-list"></ul></details>
-  <section class="rating-checker" id="rating-checker" aria-labelledby="rating-title">
-    <p class="section-label">Check a product</p><h3 id="rating-title">Does it pass the ratings test?</h3>
-    <p>Find the exact listing, then paste its five star breakdowns and total rating count. This checks the numbers you paste. It doesn’t scan retailers live or publish your result.</p>
-    <form id="rating-discover" class="query"><label for="rating-model" class="sr-only">Exact product or model</label><input id="rating-model" maxlength="160" placeholder="Find a review page by product name or model"><button class="btn" type="submit">Find review pages</button></form>
-    <div id="rating-links" class="links" aria-live="polite"></div>
-    <form id="rating-form" class="form-grid">
-      <label for="rating-source">Source<select id="rating-source"><option value="retailer">Argos or another retailer</option><option value="amazon">Amazon UK</option></select></label>
-      <label for="rating-paste">Rating breakdown<textarea id="rating-paste" maxlength="5000" required placeholder="79 ratings&#10;5 stars: 26&#10;4 stars: 5&#10;3 stars: 7&#10;2 stars: 4&#10;1 star: 37"></textarea></label>
-      <p class="fine">You can paste counts or percentages. For percentages, include the total, such as “120 global ratings”. Amazon percentages are weighted, so they’re a clue rather than a count of buyers.</p>
-      <div class="actions"><button class="btn primary" type="submit">Check ratings</button></div>
-    </form>
-    <div id="rating-result" class="rating-result" role="status" hidden></div>
-    <details id="entry-box" class="entry-box" hidden><summary id="entry-summary">Add it to the site</summary><p class="fine" id="entry-help"></p><textarea id="entry-json" readonly aria-label="Data entry to paste into data/products.js"></textarea><div class="actions" style="margin-top:8px"><button class="btn" id="entry-copy" type="button">Copy entry</button><span class="fine" id="entry-copied" role="status"></span></div></details>
-  </section>
   <aside class="waste-note" aria-labelledby="waste-title"><p class="section-label">The serious bit</p><h3 id="waste-title">You buy cheap, you buy twice!</h3><p>Before you buy, ask whether something you already own will do the job. Borrow a gadget you’ll only use once, and check for repair options before replacing it. If an electrical item is beyond repair, <a href="https://www.recyclenow.com/recycle-an-item/electrical-items" target="_blank" rel="noopener noreferrer">find out where to recycle it in the UK</a>.</p></aside>
 </section>
 <section class="view" id="archive" aria-labelledby="archive-title">
   <div class="view-head"><div><p class="section-label">The evidence drawer</p><h2 id="archive-title">The archive</h2><p class="sub">A small, hand-picked collection of review leads, past flops and deliberate parody.</p></div><label class="sr-only" for="filter">Filter starter case files</label><select id="filter"><option value="all">All case files</option><option>Product tests</option><option>Launch reviews</option><option>Discontinued</option><option>Review parody</option></select></div>
   <div id="cases" class="grid"></div>
-</section>
-<section class="finder" id="finder" aria-labelledby="finder-title">
-  <div class="finder-heading"><div><p class="section-label">Research desk</p><h2 id="finder-title">Hunt for bad buys</h2><p>Search by product or topic. Start with a model name for more useful comments.</p></div></div>
-  <form id="search" class="query"><label for="q" class="sr-only">Product or topic</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try Rabbit R1, robot vacuum or smart toaster" required><button class="btn primary" id="submit-search">Find discussion leads</button></form>
-  <div class="chips" id="chips"><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="Juicero">Kitchen gadgets</button><button type="button" class="chip" data-q="Hutzler banana slicer">Novelty buys</button></div>
-  <p class="fine">Hacker News results are discussion leads, not buyer reviews. Use the UK review links for retailer and independent sources.</p>
-</section>
-<section class="view" id="results" aria-labelledby="results-title" hidden>
-  <div class="view-head"><div><p class="section-label">Live discovery</p><h2 id="results-title" tabindex="-1">Search results</h2></div><button id="close-results" type="button" class="btn">Clear search</button></div>
-  <div id="external" class="links" aria-label="Search other sources"></div><p id="status" class="fine" role="status"></p><div id="hits" class="grid" style="margin-top:14px"></div>
 </section>
 </main>
 <footer class="footer"><div class="wrap"><p>Independent satire and research. A bad review is a lead, not a verdict. Check the exact model, date and wider reception before you buy or put it in print.</p><p class="footer-disclaimer">Money Wasting Expert is just for fun (although we should be careful of what we throw away) and not associated in any way with a well-known financial advisory service you might have heard of... or seen on the telly!</p></div></footer>
@@ -66,7 +59,7 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:34px;background:var(--w
 <script src="js/rating.js"></script>
 <script>
 'use strict';
-const {evaluateRating,parseRatingText,displayedRating,explain,isNearMiss,sum}=MWERating;
+const {evaluateRating,displayedRating,explain,isNearMiss,sum}=MWERating;
 const {cases,photos,featured,nearMisses,audit,whatsNew}=MWE_DATA;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -121,13 +114,25 @@ function renderCases(){const cat=$('filter').value;$('cases').innerHTML=cases.fi
 let findings=[],controller=null,activeTerm='';
 function hitCard(x){return '<article class="card"><header><span class="pill">'+esc(x.badge)+'</span><span class="number">'+esc(x.date)+'</span></header><h3>'+esc(x.name)+'</h3>'+(x.snippet?'<blockquote>'+esc(x.snippet)+'</blockquote>':'')+listSources(x.sources)+'</article>'}
 function sourceLinks(q){
- const search=(base,term)=>base+encodeURIComponent(term);
+ const enc=encodeURIComponent,g=t=>'https://www.google.co.uk/search?q='+enc(t);
  return [
-  [search('https://www.google.co.uk/search?q=',q+' product review complaints UK'),'UK web reviews'],
-  [search('https://www.google.co.uk/search?q=','site:amazon.co.uk '+q+' customer reviews'),'Amazon UK review pages'],
-  [search('https://www.reddit.com/search/?q=',q+' review'),'Reddit discussions'],
-  [search('https://www.google.co.uk/search?q=','site:which.co.uk '+q+' review'),'Which? tests']
+  ['https://www.amazon.co.uk/s?k='+enc(q),'Search Amazon UK'],
+  ['https://www.argos.co.uk/search/'+enc(q)+'/','Search Argos'],
+  [g('site:amazon.co.uk '+q+' global ratings 1 star'),'Amazon UK ratings via Google'],
+  [g(q+' product review complaints UK'),'UK web reviews'],
+  ['https://www.reddit.com/search/?q='+enc(q+' review'),'Reddit discussions'],
+  [g('site:which.co.uk '+q+' review'),'Which? tests']
  ].map(([url,label])=>link(url,label)).join('');
+}
+/* Tested listings that match the search */
+function testedMatches(q){
+ const terms=q.toLowerCase().split(/\s+/).filter(Boolean);
+ const hit=x=>{const n=x.name.toLowerCase();return terms.every(t=>n.includes(t))};
+ const out=[];
+ for(const x of featured)if(hit(x)){const r=evaluateRating({whole:x.whole,total:x.total,mode:x.mode});if(r.valid&&r.state==='pass')out.push(reviewCard(x,r,false))}
+ for(const x of nearMisses)if(hit(x)){const r=evaluateRating({whole:x.whole,total:x.total,mode:x.mode});if(isNearMiss(r))out.push(reviewCard(x,r,true))}
+ for(const x of audit)if(hit(x)){const r=evaluateRating({whole:x.whole,total:sum(x.whole),mode:'count'});const url=x.productUrl||(x.sku?'https://www.argos.co.uk/product/'+x.sku:'');out.push('<article class="card"><header><span class="pill">Not a waste, on these numbers</span></header><h3>'+esc(x.name)+'</h3><p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on Argos · snapshot</strong>'+esc(displayedRating(r))+'<span class="checked">'+esc(explain(r))+'.</span>'+checkedLine(x)+'</p><div class="actions">'+viewProduct({name:x.name,productUrl:url})+'</div></article>')}
+ return out.length?out.join(''):'<p class="empty">We haven’t tested “'+esc(q)+'” yet. Use the links below to check its ratings.</p>';
 }
 const complaint=/\b(worst|awful|poor|bad|terrible|disappoint\w*|useless|overpric\w*|waste\w*|unreliab\w*|regret\w*|flop\w*|return\w*|broke\w*|fail\w*|refund\w*|issues?|problems?|unusable)\b/gi;
 function priority(h){return Math.min(8,(h.text.match(complaint)||[]).length)*2+(h.badge==='Discussion comment'?1:0)}
@@ -156,7 +161,7 @@ async function runSearch(term,focus=false){
  const current=new AbortController();controller=current;activeTerm=q;findings=[];
  $('q').value=q;
  $('results').hidden=false;$('results-title').textContent='Results for “'+q+'”';
- $('external').innerHTML=sourceLinks(q);$('hits').replaceChildren();
+ $('tested').innerHTML=testedMatches(q);$('external').innerHTML=sourceLinks(q);$('hits').replaceChildren();
  $('status').textContent='Looking for stories and discussion comments…';
  document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.q===q));
  if(focus)$('results-title').focus();
@@ -174,42 +179,6 @@ async function runSearch(term,focus=false){
  $('hits').innerHTML=findings.map(hitCard).join('');
 }
 function clearSearch(){if(controller)controller.abort();controller=null;activeTerm='';findings=[];$('results').hidden=true;$('q').value='';document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed','false'));$('q').focus()}
-
-/* Ratings checker */
-function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50)||'product'}
-function entryFor(result,data,amazon){
- const name=$('rating-model').value.trim()||'Product name';
- const today=new Date().toISOString().slice(0,10);
- const source=amazon?'Amazon UK':'Argos';
- const base={id:slug(name),name};
- if(result.state==='pass'||isNearMiss(result)){
-  return {where:result.state==='pass'?'featured':'nearMisses',obj:{...base,stars:1,whole:data.whole,total:result.total,mode:'count',source,checked:today,reviewDate:'',snippet:'',tip:'',reviewNote:'',productUrl:'',sources:[['Rating breakdown and customer reviews','Quoted review · DATE','']]}};
- }
- return {where:'audit',obj:{...base,sku:'',whole:data.whole,checked:today}};
-}
-$('rating-discover').addEventListener('submit',e=>{
- e.preventDefault();
- const q=$('rating-model').value.trim();if(!q){$('rating-links').textContent='Enter a product name or model first.';return}
- const google=term=>'https://www.google.co.uk/search?q='+encodeURIComponent(term);
- $('rating-links').innerHTML=link(google('site:amazon.co.uk '+q+' global ratings'),'Find Amazon UK ratings')+link(google('site:argos.co.uk '+q+' product reviews'),'Find Argos reviews')+link(google(q+' customer ratings 1 star 5 stars'),'Find other rating breakdowns');
-});
-$('rating-form').addEventListener('submit',e=>{
- e.preventDefault();
- const data=parseRatingText($('rating-paste').value),result=evaluateRating(data);
- const output=$('rating-result');output.hidden=false;$('entry-box').hidden=true;$('entry-copied').textContent='';
- const amazon=$('rating-source').value==='amazon';
- if(!result.valid){output.textContent='Couldn’t read a complete breakdown. Paste all five star values in the same format. For percentages, include the total as a separate line, for example “120 global ratings”.';return}
- const titles={small:'Not enough ratings.',uncertain:'Too close to call from rounded percentages.',close:'Too close. Low ratings lead, but by less than a tenth of all ratings.',no:'Doesn’t pass. Low ratings don’t outnumber high ratings.',pass:result.mode==='percent'?'Promising lead. Verify the actual counts before featuring.':'Passes on the counts entered. Verify the listing and exact model before featuring.'};
- const extra=amazon&&result.mode==='percent'?' Amazon’s displayed percentages are weighted, not raw buyer counts.':'';
- output.textContent=titles[result.state]+' '+result.total.toLocaleString('en-GB')+' ratings. '+displayedRating(result)+'.'+extra;
- if(result.mode==='count'){
-  const {where,obj}=entryFor(result,data,amazon);
-  $('entry-summary').textContent='Add it to the site ('+where+')';
-  $('entry-help').textContent=where==='audit'?'It doesn’t pass, but you can record it in the audit list in data/products.js so the site shows its working. Paste this into the audit array.':'Paste this into the '+where+' array in data/products.js, then fill in the blank fields: the review quote, tip, product link and source link. Add a photo entry under photos if you have one. Update the date to when you read the counts.';
-  $('entry-json').value=JSON.stringify(obj,null,1);$('entry-box').hidden=false;
- }
-});
-$('entry-copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('entry-json').value);$('entry-copied').textContent='Copied.'}catch{$('entry-json').select();$('entry-copied').textContent='Select and copy the text above.'}});
 
 /* Wiring */
 $('filter').addEventListener('change',renderCases);

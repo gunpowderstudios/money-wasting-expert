@@ -1,5 +1,14 @@
 # Money Wasting Expert — changelog and Claude handoff
 
+## v0.4.0 — live search (optional)
+
+- **Worker.** New `worker/` folder: a Cloudflare Worker that holds the API keys. `/api/amazon` (Rainforest API, Amazon UK) returns listings and the 1–5 star breakdown for the three lowest-rated ones with 50+ ratings. `/api/web` (Brave Search API) returns web results sorted into retailers (Argos etc.), independent sites and forums. Results are cached 24 hours, requests are limited to the site's origin, and an optional KV-backed daily cap stops runaway spend. Setup and costs are in `worker/README.md`.
+- **Page.** Set `window.MWE_API` in `config.js` to turn it on. Search then shows live Amazon UK cards (pass / close / mostly well rated, with a low-neutral-high bar), Argos and other retailer pages, and independent reviews and forums. With no address set, nothing changes. Errors and the daily-limit message are shown plainly.
+- **Rule fix.** Percentage breakdowns now need the same 10-point margin as counts (previously any lead over 2 points passed). Amazon is always treated as percentages, per the earlier policy: weighted, not buyer counts, never promoted to the front-page shelf automatically.
+- **Argos.** Search finds Argos pages, but Argos has no ratings API, so counts there are still checked by hand.
+- **Unverified.** The Rainforest docs don't state the exact key names inside `rating_breakdown`, so the parser accepts several shapes (`one_star`…`five_star` as numbers or `{count, percentage}`, or `1`…`5`) and reports `warnings` if it can't read one. Run the first-run check in `worker/README.md` once with real keys.
+- Tests: `npm test` now also runs `tests/worker.test.mjs` (14 checks with stubbed providers: parsing, grouping, caching, origin lock, safe errors, daily limit).
+
 ## v0.3.0 — one search box
 
 - Removed the "Check a product" paste checker and its data-entry helper and parser. One search box now sits at the top of the page.

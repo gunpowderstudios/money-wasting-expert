@@ -1,0 +1,14 @@
+name = "mwe-live-search"
+main = "src/index.mjs"
+compatibility_date = "2026-11-01"
+
+# Optional: a daily spending guard. Create with:  npx wrangler kv namespace create MWE_KV
+# then paste the id below and uncomment.
+# [[kv_namespaces]]
+# binding = "MWE_KV"
+# id = "PASTE_ID_HERE"
+
+[vars]
+# Pages the Worker will answer. Add http://localhost:8000 while testing locally.
+ALLOWED_ORIGINS = "https://gunpowderstudios.github.io"
+DAILY_LIMIT = "200"

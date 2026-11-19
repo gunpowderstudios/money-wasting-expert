@@ -17,6 +17,8 @@ t('counts must add up to the total', () => assert.equal(ev([37,4,7,5,26],80).val
 t('negative or fractional counts rejected', () => { assert.equal(ev([-1,4,7,5,26],41).valid, false); assert.equal(ev([1.5,4,7,5,26],43.5).valid, false); });
 t('percentages: clear low win is a lead', () => assert.equal(ev([40,20,10,10,20],120,'percent').state, 'pass'));
 t('percentages: within 2 points is uncertain', () => assert.equal(ev([26,15,19,20,20],120,'percent').state, 'uncertain'));
+t('percentages: a 5-point lead is close, not a pass', () => assert.equal(ev([30,15,15,20,20],120,'percent').state, 'close'));
+t('percentages: a 3-point deficit is no, not uncertain', () => assert.equal(ev([20,20,0,20,40],120,'percent').state, 'no'));
 t('percentages over 100 or not summing to 100 rejected', () => { assert.equal(ev([120,0,0,0,0],120,'percent').valid, false); assert.equal(ev([10,10,10,10,10],120,'percent').valid, false); });
 
 t('every featured product in the data passes the live rules', () => {

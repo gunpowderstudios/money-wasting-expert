@@ -18,7 +18,7 @@
     const small = data.total < MIN_RATINGS;
     let state;
     if (small) state = 'small';
-    else if (data.mode === 'percent') state = Math.abs(margin) <= PERCENT_TIE ? 'uncertain' : margin > 0 ? 'pass' : 'no';
+    else if (data.mode === 'percent') state = Math.abs(margin) <= PERCENT_TIE ? 'uncertain' : margin < 0 ? 'no' : margin < MIN_MARGIN * 100 ? 'close' : 'pass';
     else if (margin <= 0) state = 'no';
     else state = margin / data.total >= MIN_MARGIN ? 'pass' : 'close';
     return { valid: true, state, bad, neutral, good, total: data.total, mode: data.mode, margin };

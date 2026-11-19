@@ -15,7 +15,7 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
 @media(min-width:566px) and (max-width:670px){.hero h1{font-size:clamp(41px,7.3vw,49px)}}
 @media(max-width:360px){.hero h1{font-size:clamp(34px,13.15vw,48px)}}
 @media(max-width:565px){.wrap{padding-inline:15px}.top{padding-block:14px}.hero{display:block;padding-block:33px 40px}.receipt{display:none}.finder{padding:16px}.finder-heading,.view-head{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.query{grid-template-columns:1fr}.btn,.chip{min-height:40px}.view-head{gap:10px}}
-.checked{display:block;margin-top:3px;font-weight:600}.checked.missing{color:var(--rust)}.near-shelf{margin-top:26px}.near-shelf h3{font:700 26px/1.1 Georgia,serif;margin-bottom:6px}.pill.watch{background:#fbe7c7;color:#583913}.result-head{font:700 24px/1.1 Georgia,serif;margin:26px 0 10px}.whatsnew h3{margin:16px 0 4px}.whatsnew ul{margin:0 0 6px;padding-left:20px}
+.checked{display:block;margin-top:3px;font-weight:600}.checked.missing{color:var(--rust)}.near-shelf{margin-top:26px}.near-shelf h3{font:700 26px/1.1 Georgia,serif;margin-bottom:6px}.pill.watch{background:#fbe7c7;color:#583913}.result-head{font:700 24px/1.1 Georgia,serif;margin:26px 0 10px}.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:8px 0 4px;background:#e6ddd2}.bar i{display:block;height:100%}.bar .b{background:#b5463f}.bar .n{background:#cfc4b6}.bar .g{background:#5f8a4f}.live-title{font-size:15px;margin:0 0 8px;font-weight:750;overflow-wrap:anywhere}.host{display:block;color:var(--muted)}.whatsnew h3{margin:16px 0 4px}.whatsnew ul{margin:0 0 6px;padding-left:20px}
 </style>
 </head>
 <body>
@@ -28,12 +28,23 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
   <div class="finder-heading"><div><p class="section-label">Search any product</p><h2 id="finder-title">Is it a waste of money?</h2><p>Type a product or model. We’ll show anything we’ve tested, and where to check the star ratings yourself.</p></div></div>
   <form id="search" class="query"><label for="q" class="sr-only">Product or model</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try air fryer, robot vacuum or Rabbit R1" required><button class="btn primary" id="submit-search">Search</button></form>
   <div class="chips" id="chips"><button type="button" class="chip" data-q="air fryer">Air fryers</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="toaster">Toasters</button><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button></div>
-  <p class="fine">We can’t read live star counts from Amazon or Argos from this page. Products we’ve checked are shown with their counts. For anything else, use the links to open the listing and look at its star breakdown.</p>
+  <p class="fine" id="search-note">We can’t read live star counts from Amazon or Argos from this page. Products we’ve checked are shown with their counts. For anything else, use the links to open the listing and look at its star breakdown.</p>
 </section>
 <section class="view" id="results" aria-labelledby="results-title" hidden>
   <div class="view-head"><div><p class="section-label">Search results</p><h2 id="results-title" tabindex="-1">Results</h2></div><button id="close-results" type="button" class="btn">Clear search</button></div>
   <h3 class="result-head">Products we’ve tested</h3>
   <div id="tested" class="grid"></div>
+  <div id="live" hidden>
+    <h3 class="result-head">Amazon UK, live</h3>
+    <p class="fine" style="margin-top:0">Lowest-rated matching listings first. Amazon shows a weighted percentage breakdown, not a count of buyers, so treat it as a strong lead.</p>
+    <div id="live-amazon" class="grid" aria-live="polite"></div>
+    <details id="live-other" hidden><summary>Other Amazon UK results (average rating only)</summary><ul id="live-other-list" class="sources"></ul></details>
+    <h3 class="result-head">Argos and other retailers</h3>
+    <p class="fine" style="margin-top:0">Argos doesn’t share star counts with search tools, so open the listing and check the breakdown yourself.</p>
+    <ul id="live-retail" class="sources" aria-live="polite"></ul>
+    <h3 class="result-head">Independent reviews and forums</h3>
+    <ul id="live-indep" class="sources" aria-live="polite"></ul>
+  </div>
   <h3 class="result-head">Check the ratings yourself</h3>
   <p class="fine" style="margin-top:0">On Amazon UK, click the star rating on the listing to see the five-star breakdown. On Argos, scroll to Reviews. You’re looking for more 1–2★ than 4–5★.</p>
   <div id="external" class="links" aria-label="Search other sources"></div>
@@ -55,6 +66,7 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
 </main>
 <footer class="footer"><div class="wrap"><p>Independent satire and research. A bad review is a lead, not a verdict. Check the exact model, date and wider reception before you buy or put it in print.</p><p class="footer-disclaimer">Money Wasting Expert is just for fun (although we should be careful of what we throw away) and not associated in any way with a well-known financial advisory service you might have heard of... or seen on the telly!</p></div></footer>
 <dialog id="whatsnew" class="whatsnew" aria-labelledby="whatsnew-title"><h2 id="whatsnew-title">What’s new</h2><div id="whatsnew-body"></div><div class="actions" style="margin-top:14px"><button class="btn primary" id="whatsnew-close" type="button">Close</button></div></dialog>
+<script src="config.js"></script>
 <script src="data/products.js"></script>
 <script src="js/rating.js"></script>
 <script>
@@ -131,7 +143,7 @@ function testedMatches(q){
  const out=[];
  for(const x of featured)if(hit(x)){const r=evaluateRating({whole:x.whole,total:x.total,mode:x.mode});if(r.valid&&r.state==='pass')out.push(reviewCard(x,r,false))}
  for(const x of nearMisses)if(hit(x)){const r=evaluateRating({whole:x.whole,total:x.total,mode:x.mode});if(isNearMiss(r))out.push(reviewCard(x,r,true))}
- for(const x of audit)if(hit(x)){const r=evaluateRating({whole:x.whole,total:sum(x.whole),mode:'count'});const url=x.productUrl||(x.sku?'https://www.argos.co.uk/product/'+x.sku:'');out.push('<article class="card"><header><span class="pill">Not a waste, on these numbers</span></header><h3>'+esc(x.name)+'</h3><p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on Argos · snapshot</strong>'+esc(displayedRating(r))+'<span class="checked">'+esc(explain(r))+'.</span>'+checkedLine(x)+'</p><div class="actions">'+viewProduct({name:x.name,productUrl:url})+'</div></article>')}
+ for(const x of audit)if(hit(x)){const r=evaluateRating({whole:x.whole,total:sum(x.whole),mode:'count'});const url=x.productUrl||(x.sku?'https://www.argos.co.uk/product/'+x.sku:'');out.push('<article class="card"><header><span class="pill">Not a waste, on these numbers</span></header><h3>'+esc(x.name)+'</h3><p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on Argos · snapshot</strong>'+esc(displayedRating(r))+'<span class="checked">'+esc(explain(r).replace(/^./,c=>c.toUpperCase()))+'.</span>'+checkedLine(x)+'</p><div class="actions">'+viewProduct({name:x.name,productUrl:url})+'</div></article>')}
  return out.length?out.join(''):'<p class="empty">We haven’t tested “'+esc(q)+'” yet. Use the links below to check its ratings.</p>';
 }
 const complaint=/\b(worst|awful|poor|bad|terrible|disappoint\w*|useless|overpric\w*|waste\w*|unreliab\w*|regret\w*|flop\w*|return\w*|broke\w*|fail\w*|refund\w*|issues?|problems?|unusable)\b/gi;
@@ -161,7 +173,7 @@ async function runSearch(term,focus=false){
  const current=new AbortController();controller=current;activeTerm=q;findings=[];
  $('q').value=q;
  $('results').hidden=false;$('results-title').textContent='Results for “'+q+'”';
- $('tested').innerHTML=testedMatches(q);$('external').innerHTML=sourceLinks(q);$('hits').replaceChildren();
+ $('tested').innerHTML=testedMatches(q);$('external').innerHTML=sourceLinks(q);$('hits').replaceChildren();$('live').hidden=true;loadLive(q,current);
  $('status').textContent='Looking for stories and discussion comments…';
  document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.q===q));
  if(focus)$('results-title').focus();
@@ -178,7 +190,48 @@ async function runSearch(term,focus=false){
  $('status').textContent=failed===2?'Live discussion search is unavailable right now. Try the search links above.':findings.length?comments.length+' discussion '+(comments.length===1?'comment':'comments')+' and '+stories.length+' story '+(stories.length===1?'lead':'leads')+' shown. Complaint words move a lead up, but don’t make it a bad product.'+(failed?' One search source did not respond.':''):'No matching discussion leads. Try the exact product name or use the links above.'+(failed?' One search source did not respond.':'');
  $('hits').innerHTML=findings.map(hitCard).join('');
 }
-function clearSearch(){if(controller)controller.abort();controller=null;activeTerm='';findings=[];$('results').hidden=true;$('q').value='';document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed','false'));$('q').focus()}
+function clearSearch(){if(typeof liveCtl!=='undefined'&&liveCtl)liveCtl.abort();if(controller)controller.abort();controller=null;activeTerm='';findings=[];$('results').hidden=true;$('q').value='';document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed','false'));$('q').focus()}
+
+/* Live results (needs the Worker address in config.js) */
+const API=String(window.MWE_API||'').replace(/\/+$/,'');
+const apiGet=async(path,q,signal)=>{const res=await fetch(API+path+'?q='+encodeURIComponent(q),{signal,credentials:'omit'});let body=null;try{body=await res.json()}catch{}if(!res.ok)throw Object.assign(new Error(body?.error||'unavailable'),{status:res.status});return body};
+const VERDICT={pass:['More 1–2★ than 4–5★','rating-pill'],close:['Close, but not clearly bad',''],uncertain:['Too close to call',''],no:['Mostly well rated',''],small:['Not enough ratings','']};
+function amazonCard(x,when){
+ const r=evaluateRating({whole:x.percent,total:Number.isSafeInteger(x.ratingsTotal)?x.ratingsTotal:0,mode:'percent'});
+ const [label,cls]=r.valid?VERDICT[r.state]:['Breakdown unreadable',''];
+ const bar=r.valid?'<div class="bar" role="img" aria-label="'+esc(displayedRating(r))+'"><i class="b" style="width:'+r.bad+'%"></i><i class="n" style="width:'+r.neutral+'%"></i><i class="g" style="width:'+r.good+'%"></i></div>':'';
+ return {r,html:'<article class="card review-card"><header><span class="pill '+cls+'">'+esc(label)+'</span></header><h3 class="live-title">'+link(x.url,x.title)+'</h3><p class="rating-proof"><strong>'+(r.valid?r.total.toLocaleString('en-GB'):'?')+' ratings on Amazon UK · live</strong>'+(r.valid?esc(displayedRating(r)):'')+bar+'<span class="checked">Average '+esc(x.rating??'?')+' out of 5.'+(when?' Checked '+esc(when)+'.':'')+'</span></p><div class="actions">'+viewProduct({name:x.title,productUrl:x.url})+'</div></article>'};
+}
+function renderAmazon(d){
+ const when=niceDate(String(d.fetchedAt||'').slice(0,10));
+ const withBd=d.results.filter(x=>Array.isArray(x.percent)).map(x=>amazonCard(x,when));
+ const rank={pass:0,close:1,uncertain:2,small:3,no:4};
+ withBd.sort((a,b)=>(rank[a.r.state]??5)-(rank[b.r.state]??5)||(b.r.margin||0)-(a.r.margin||0));
+ const flagged=withBd.filter(x=>x.r.state==='pass').length;
+ $('live-amazon').innerHTML=withBd.length?withBd.map(x=>x.html).join(''):'<p class="empty">'+(d.results.length?'We couldn’t read star breakdowns for these listings right now. Open them on Amazon to check.':'No Amazon UK listings found for that search.')+'</p>';
+ const rest=d.results.filter(x=>!Array.isArray(x.percent));
+ $('live-other').hidden=!rest.length;
+ $('live-other-list').innerHTML=rest.map(x=>'<li>'+link(x.url,x.title)+'<span>'+(x.rating!=null?esc(x.rating)+' out of 5':'No rating')+(x.ratingsTotal!=null?' · '+esc(Number(x.ratingsTotal).toLocaleString('en-GB'))+' ratings':'')+'</span></li>').join('');
+ return flagged;
+}
+function webList(rows,empty){return rows.length?rows.map(r=>'<li>'+link(r.url,r.title)+'<span>'+esc(r.snippet)+'</span><span class="host">'+esc(r.host)+(r.kind==='community'?' · forum or community':'')+'</span></li>').join(''):'<li><span>'+esc(empty)+'</span></li>'}
+if(API)$('search-note').textContent='Searches Amazon UK live for the lowest-rated matches, plus Argos, other retailers and independent reviews. Argos doesn’t share star counts, so open its listings to check. Products we’ve tested before show their counts.';
+let liveCtl=null;
+async function loadLive(q,token){
+ if(liveCtl)liveCtl.abort();
+ if(!API)return;
+ const ctl=new AbortController();liveCtl=ctl;const signal=ctl.signal;
+ $('live').hidden=false;
+ $('live-amazon').innerHTML='<p class="empty">Searching Amazon UK…</p>';$('live-other').hidden=true;
+ $('live-retail').innerHTML='<li><span>Searching…</span></li>';$('live-indep').innerHTML='<li><span>Searching…</span></li>';
+ const timer=setTimeout(()=>ctl.abort(),25000);
+ const [am,web]=await Promise.allSettled([apiGet('/api/amazon',q,signal),apiGet('/api/web',q,signal)]);
+ clearTimeout(timer);if(controller!==token||liveCtl!==ctl)return;
+ const why=e=>e?.status===429?'Today’s live search limit has been reached. Try again tomorrow, or use the links below.':'Live results are unavailable right now. Use the links below.';
+ if(am.status==='fulfilled')renderAmazon(am.value);else $('live-amazon').innerHTML='<p class="empty">'+esc(why(am.reason))+'</p>';
+ if(web.status==='fulfilled'){$('live-retail').innerHTML=webList(web.value.retailers||[],'No retailer pages found.');$('live-indep').innerHTML=webList([...(web.value.independent||[]),...(web.value.community||[])],'No independent pages found.')}
+ else{const m='<li><span>'+esc(why(web.reason))+'</span></li>';$('live-retail').innerHTML=m;$('live-indep').innerHTML=m}
+}
 
 /* Wiring */
 $('filter').addEventListener('change',renderCases);

@@ -1,6 +1,8 @@
 {
   "name": "money-wasting-expert",
   "private": true,
-  "description": "Static GitHub Pages site. No build step. npm test runs the ratings checks.",
-  "scripts": { "test": "node tests/rating.test.js" }
+  "description": "Static GitHub Pages site plus an optional Cloudflare Worker for live search. npm test runs all checks.",
+  "scripts": {
+    "test": "node tests/rating.test.js && node tests/worker.test.mjs"
+  }
 }

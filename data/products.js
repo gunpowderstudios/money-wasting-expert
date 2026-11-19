@@ -407,6 +407,16 @@ const MWE_DATA = {
  ],
  "whatsNew": [
   {
+   "version": "v0.4.0",
+   "title": "Live search (when connected)",
+   "items": [
+    "Optional live search: Amazon UK listings with their 1–5 star breakdown, lowest-rated first, each marked pass or not on the 1–2★ test.",
+    "Live web results for Argos and other retailers, independent reviews and forums.",
+    "Percentage breakdowns now use the same 10-point margin as counts.",
+    "Runs through a small Cloudflare Worker (see worker/README.md). Without one, the site works as before."
+   ]
+  },
+  {
    "version": "v0.3.0",
    "title": "One search box",
    "items": [

@@ -1,5 +1,11 @@
 # Money Wasting Expert — changelog and Claude handoff
 
+## v0.5.1 — photo thumbnails
+
+- Added `photos` entries for 7 of the 11 `shame[]` products (Hisense, Shark WandVac, Haier, Silentnight, House of Marley, Hamilton Beach, Hoover). Each URL was read from a real product page; credit and source link are shown on the card.
+- No usable image found for Bush BFSLSAE9W, Salter Cosmos blender, Shark S1000 steam mop, GoWise GW44800: they show "Product photo unavailable". Add `photos["<id>"] = [imageUrl, credit, pageUrl]` when you have one.
+- Images are hotlinked, so some may break if the shop changes them (the card falls back to text).
+
 ## v0.5.0 — hall of shame
 
 - **Direction change.** The site is now a collection of the worst products we can find, for building a funny book, not a search tool. The search box, tested-listing search, live results and Hacker News panel were removed from the page.

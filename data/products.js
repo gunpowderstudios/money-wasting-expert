@@ -230,6 +230,41 @@ const MWE_DATA = {
    "https://cdn11.bigcommerce.com/s-jtxa13/images/stencil/640w/products/2106/4981/571_150dpi_8x5__20698.1752154237.jpg?c=2",
    "Hutzler",
    "https://hutzlerco.com/hutzler-banana-slicer-oanz/"
+  ],
+  "hisense-32a4gtuk": [
+   "https://www.jbpostle.com/media/catalog/product/cache/2ddb21283bb664e737ff52c493106825/h/i/hisense_32a4gtuk_384745_34-0100-0190.jpg",
+   "JB Postle",
+   "https://www.jbpostle.com/hisense-32a4gtuk-black-500136255.html"
+  ],
+  "shark-wandvac-wv361uk": [
+   "https://cdn.shopify.com/s/files/1/0898/8108/4234/files/46399_1.jpg?v=1774898484",
+   "Lakeland",
+   "https://www.lakeland.co.uk/products/shark-wandvac-lightweight-2-in-1-cordless-handheld-vacuum-cleaner-wv361uk"
+  ],
+  "haier-hw90-b14959s8u1": [
+   "https://s3-eu-west-1.amazonaws.com/media.markselectrical.co.uk/item-images/zoom/31018792.jpg",
+   "Marks Electrical",
+   "https://markselectrical.co.uk/31018792_haier-washing-machine"
+  ],
+  "silentnight-airmax-800": [
+   "https://www.silentnight.co.uk/media/catalog/product/cache/7800bb778a954cb4c97ef3c76a1a4610/a/i/airmax_800_purifier_5__1.jpg",
+   "Silentnight",
+   "https://www.silentnight.co.uk/silentnight-airmax-800-air-purifier.html"
+  ],
+  "house-of-marley-jammin": [
+   "https://thehouseofmarley.com/cdn/shop/files/EM-JA026-CE_HR_Product_02_1800x1800.png?v=1754580676",
+   "House of Marley",
+   "https://thehouseofmarley.com/jammin-bluetooth-speaker"
+  ],
+  "hamilton-beach-64655": [
+   "https://hamiltonbeach.com/media/products/64655.jpg",
+   "Hamilton Beach",
+   "https://hamiltonbeach.com/6-speed-stand-mixer-white-64655"
+  ],
+  "hoover-smartwash-fh53000pc": [
+   "https://hoover.com/cdn/shop/files/FH53000_Smartwashpet_ATF_Hero.jpg?v=1708013033&width=1445",
+   "Hoover",
+   "https://hoover.com/smartwash-pet-complete-bonus-kit/FH53000TV1.html"
   ]
  },
  "featured": [
@@ -408,6 +443,15 @@ const MWE_DATA = {
   }
  ],
  "whatsNew": [
+  {
+   "version": "v0.5.1",
+   "title": "Photo thumbnails on the new cards",
+   "items": [
+    "Product photos are back on the hall-of-shame cards where a real product image could be found (7 of 11).",
+    "Bush dishwasher, Salter blender, Shark steam mop and GoWise oven have no photo yet, so they show the text placeholder.",
+    "Photos are linked from the maker or a retailer and credited on each card."
+   ]
+  },
   {
    "version": "v0.5.0",
    "title": "Hall of shame",

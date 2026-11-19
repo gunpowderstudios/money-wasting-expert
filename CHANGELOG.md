@@ -1,5 +1,16 @@
 # Money Wasting Expert — changelog and Claude handoff
 
+## v0.5.0 — hall of shame
+
+- **Direction change.** The site is now a collection of the worst products we can find, for building a funny book, not a search tool. The search box, tested-listing search, live results and Hacker News panel were removed from the page.
+- **Parked, not deleted.** The live-search Worker (`worker/`), `config.js` and the v0.4.0 page are kept. To bring search back: `git checkout v0.4.0-search -- index.html`, then follow `worker/README.md`.
+- **New content.** `shame[]` in `data/products.js`: 11 products from named independent tests, each with a source link, the date the source was read, a paraphrase of the finding and an original joke (clearly labelled). Seven are from Which? Don't Buy round-ups (UK); four are from Consumer Reports' 2025 worst list as reported by BGR (US models). Safety-critical fails in those articles (child car seat, stroller, blood pressure monitor, cholesterol monitor, smoke alarm) were left out on purpose: not something to joke about. Where a maker disputed a finding, the card says so.
+- **Page.** One grid of everything: customer-ratings pick, tested-and-failed, famous flops, parody. Filters by kind. Each card links to Amazon UK and Argos searches so you can look at the stars yourself.
+- **Book shortlist is back.** "+ Add to book" on each card, notes per product, and "Download book notes" as markdown. It uses the same browser key as before (`mwe-shortlist-v1`), so anything saved earlier shows up again.
+- **Evidence rules.** The 50-rating, 1–2★ test still decides the customer-ratings card. Lab-test cards are labelled as test results, not star ratings. Several Consumer Reports duds have high customer ratings (BGR figures are quoted), which is part of the joke.
+- **Not possible from here:** reading Argos or Amazon star counts. The tools used to research this can't open those pages, so no new star counts were added.
+- Tests: `tests/rating.test.js` now also checks every `shame[]` entry (sources are https, source date present, unique ids, no empty text).
+
 ## v0.4.0 — live search (optional)
 
 - **Worker.** New `worker/` folder: a Cloudflare Worker that holds the API keys. `/api/amazon` (Rainforest API, Amazon UK) returns listings and the 1–5 star breakdown for the three lowest-rated ones with 50+ ratings. `/api/web` (Brave Search API) returns web results sorted into retailers (Argos etc.), independent sites and forums. Results are cached 24 hours, requests are limited to the site's origin, and an optional KV-backed daily cap stops runaway spend. Setup and costs are in `worker/README.md`.

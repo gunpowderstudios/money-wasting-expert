@@ -42,4 +42,22 @@ t('featured and audit ids are unique', () => {
   const ids = [...D.featured, ...D.nearMisses, ...D.audit].map(x => x.id);
   assert.equal(new Set(ids).size, ids.length);
 });
+t('every shame entry has text, a valid kind, an https source and a read date', () => {
+  assert.ok(D.shame.length >= 10);
+  for (const x of D.shame) {
+    for (const f of ['id', 'name', 'badge', 'label', 'summary', 'angle']) assert.ok(typeof x[f] === 'string' && x[f].trim().length > 3, x.id + ' ' + f);
+    assert.ok(['lab', 'flop', 'parody'].includes(x.kind), x.id);
+    assert.match(x.read, /^\d{4}-\d\d-\d\d$/, x.id);
+    assert.ok(x.sources.length >= 1);
+    for (const [label, detail, url] of x.sources) { assert.ok(label && detail, x.id); assert.match(url, /^https:\/\//, x.id); }
+  }
+});
+t('shame ids do not clash with other products', () => {
+  const ids = [...D.shame, ...D.featured, ...D.cases, ...D.audit].map(x => x.id);
+  assert.equal(new Set(ids).size, ids.length);
+});
+t('no shame entry is a safety-critical product', () => {
+  const banned = /car seat|stroller|pushchair|blood pressure|cholesterol|smoke alarm|carbon monoxide|baby/i;
+  for (const x of D.shame) assert.ok(!banned.test(x.name), x.name);
+});
 console.log('\nAll ' + n + ' checks passed');

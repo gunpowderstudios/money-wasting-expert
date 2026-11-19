@@ -1,6 +1,8 @@
 /*
  * Money Wasting Expert: product data. Edit this file, not index.html.
  *
+ * shame[]      Products that tested badly or flopped, from named independent sources. Each needs a source link and the date you read it.
+ *              Paraphrase what the source said. Never put in claims the source does not make. Note any dispute from the maker.
  * featured[]   Products that PASS the ratings test (50+ ratings, 1-2 star beat 4-5 star by 10%+ of all ratings).
  *              Needs the five raw counts in 1-star..5-star order ("whole"), the total, a source URL and
  *              a "checked" date (YYYY-MM-DD) for when you read the counts off the retailer page.
@@ -407,6 +409,17 @@ const MWE_DATA = {
  ],
  "whatsNew": [
   {
+   "version": "v0.5.0",
+   "title": "Hall of shame",
+   "items": [
+    "The page is now a collection of the worst buys we can find, instead of a search tool.",
+    "11 new products from Which? and Consumer Reports test results, each with a link to the source and the date it was read.",
+    "Filters: tested and failed, famous flops, customer ratings, parody.",
+    "Book shortlist is back: add products, write notes, download them as a file.",
+    "Search and live results are parked for later (see the change log)."
+   ]
+  },
+  {
    "version": "v0.4.0",
    "title": "Live search (when connected)",
    "items": [
@@ -443,6 +456,211 @@ const MWE_DATA = {
     "Front page only features products with sourced counts for all five star buckets and at least 50 ratings.",
     "Added the ratings checker and Amazon UK percentage handling."
    ]
+  }
+ ],
+ "shame": [
+  {
+   "id": "hisense-32a4gtuk",
+   "name": "Hisense 32A4GTUK TV",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£159",
+   "label": "Television · UK lab test",
+   "summary": "Which? criticised its cold, unnatural colours, weak handling of dark scenes and poor sound, with the casing audibly buzzing.",
+   "angle": "Great for people who feel films are too colourful and too easy to hear.",
+   "sources": [
+    [
+     "Which?",
+     "Don’t Buy round-up",
+     "https://www.which.co.uk/news/article/6-rip-off-dont-buy-appliances-to-avoid-a6iqu5V36ONp"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "bush-bfslsae9w",
+   "name": "Bush BFSLSAE9W dishwasher",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£250",
+   "label": "Dishwasher · UK lab test",
+   "summary": "Which? found poor cleaning results, even on the eco programme, so dishes needed rewashing. It also called it hard to load and flimsily made.",
+   "angle": "A dishwasher that creates a second job: washing up before it, and after it.",
+   "sources": [
+    [
+     "Which?",
+     "Don’t Buy round-up",
+     "https://www.which.co.uk/news/article/6-rip-off-dont-buy-appliances-to-avoid-a6iqu5V36ONp"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "shark-wandvac-wv361uk",
+   "name": "Shark Wandvac WV361UK cordless vacuum",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£159",
+   "label": "Cordless vacuum · UK lab test",
+   "summary": "Which? said it lifted only about a quarter of the dust from carpet and did badly on pet hair.",
+   "angle": "Tidying by moving the dust somewhere you’ll find it later.",
+   "sources": [
+    [
+     "Which?",
+     "Don’t Buy round-up",
+     "https://www.which.co.uk/news/article/6-rip-off-dont-buy-appliances-to-avoid-a6iqu5V36ONp"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "haier-hw90-b14959s8u1",
+   "name": "Haier HW90-B14959S8U1 washing machine",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£480",
+   "label": "Washing machine · UK lab test",
+   "summary": "Which? reported poor stain removal, heavy water use, short programmes and trouble with everyday dirt.",
+   "angle": "Uses a lot of water to politely suggest the stain stays.",
+   "sources": [
+    [
+     "Which?",
+     "Don’t Buy round-up",
+     "https://www.which.co.uk/news/article/6-rip-off-dont-buy-appliances-to-avoid-a6iqu5V36ONp"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "salter-cosmos-ek4383",
+   "name": "Salter Cosmos EK4383 blender",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£39",
+   "label": "Blender · UK lab test",
+   "summary": "Which? found it very noisy, poor at making smoothies and among the least user-friendly blenders it had tested.",
+   "angle": "All the noise of a blender, with the smoothie as an optional extra.",
+   "sources": [
+    [
+     "Which?",
+     "Don’t Buy round-up",
+     "https://www.which.co.uk/news/article/6-rip-off-dont-buy-appliances-to-avoid-a6iqu5V36ONp"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "silentnight-airmax-800",
+   "name": "Silentnight Airmax 800 air purifier",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£69",
+   "label": "Air purifier · UK lab test",
+   "summary": "Which? scored it 37% and said it struggled to remove small particles.",
+   "angle": "The air quality verdict: the lab and the maker are not breathing the same air.",
+   "sources": [
+    [
+     "Which?",
+     "Ultimate Don’t Buys of 2026",
+     "https://www.which.co.uk/policy-and-insight/article/from-dangerous-child-car-seats-to-useless-tech-which-names-and-shames-the-ultimate-dont-buys-of-2026-a72UV8b3boHU"
+    ]
+   ],
+   "read": "2026-11-19",
+   "dispute": "Silentnight disputed the findings, saying the purifier is designed to remove particles with a HEPA filter and was never claimed to remove gases."
+  },
+  {
+   "id": "house-of-marley-jammin",
+   "name": "House of Marley Jammin speaker",
+   "kind": "lab",
+   "badge": "Which? Don’t Buy",
+   "price": "£30",
+   "label": "Bluetooth speaker · UK lab test",
+   "summary": "Which? scored it 42%. Testers said its sound lacked clarity and depth compared with similarly priced rivals.",
+   "angle": "For music you’d like to enjoy at a polite distance.",
+   "sources": [
+    [
+     "Which?",
+     "Ultimate Don’t Buys of 2026",
+     "https://www.which.co.uk/policy-and-insight/article/from-dangerous-child-car-seats-to-useless-tech-which-names-and-shames-the-ultimate-dont-buys-of-2026-a72UV8b3boHU"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "shark-s1000-steam-mop",
+   "name": "Shark S1000 steam mop",
+   "kind": "lab",
+   "badge": "Consumer Reports test",
+   "region": "US",
+   "label": "Steam mop · US lab test",
+   "summary": "Consumer Reports gave it the lowest score in its group, citing a low steam rate and poor stain removal on ceramic tile.",
+   "angle": "The steam was the only thing that cleared the air.",
+   "note": "BGR reports Amazon shoppers rated it 4.3 stars across more than 62,000 reviews.",
+   "sources": [
+    [
+     "BGR",
+     "Roundup of Consumer Reports’ worst appliances of 2025",
+     "https://bgr.com/2084725/worst-home-applicance-2025-according-consumer-reports"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "gowise-gw44800",
+   "name": "GoWise USA Deluxe GW44800 toaster oven",
+   "kind": "lab",
+   "badge": "Consumer Reports test",
+   "region": "US",
+   "label": "Toaster oven · US lab test",
+   "summary": "Consumer Reports ranked it last among the toaster ovens it tested, with weak baking and toasting and hard-to-use controls.",
+   "angle": "Last place in a race it wasn’t really sure it had entered.",
+   "note": "BGR reports Amazon shoppers rated it 4.2 stars across nearly 12,000 reviews.",
+   "sources": [
+    [
+     "BGR",
+     "Roundup of Consumer Reports’ worst appliances of 2025",
+     "https://bgr.com/2084725/worst-home-applicance-2025-according-consumer-reports"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "hamilton-beach-64655",
+   "name": "Hamilton Beach 6 Speed 64655 stand mixer",
+   "kind": "lab",
+   "badge": "Consumer Reports test",
+   "region": "US",
+   "label": "Stand mixer · US lab test",
+   "summary": "Consumer Reports said it vibrated heavily and was weak at mixing, kneading and whipping.",
+   "angle": "It does mix. It mixes the worktop, the bowl and your hopes.",
+   "note": "BGR reports Amazon shoppers rated it 4.1 stars across nearly 8,000 reviews.",
+   "sources": [
+    [
+     "BGR",
+     "Roundup of Consumer Reports’ worst appliances of 2025",
+     "https://bgr.com/2084725/worst-home-applicance-2025-according-consumer-reports"
+    ]
+   ],
+   "read": "2026-11-19"
+  },
+  {
+   "id": "hoover-smartwash-fh53000pc",
+   "name": "Hoover SmartWash Pet Complete FH53000PC carpet cleaner",
+   "kind": "lab",
+   "badge": "Consumer Reports test",
+   "region": "US",
+   "label": "Carpet cleaner · US lab test",
+   "summary": "Consumer Reports found it not strong enough to remove stains and said it left carpets damp.",
+   "angle": "Damp, still stained and now with a bonus smell of regret.",
+   "note": "BGR reports Amazon shoppers rated it 4.3 stars across more than 29,000 reviews.",
+   "sources": [
+    [
+     "BGR",
+     "Roundup of Consumer Reports’ worst appliances of 2025",
+     "https://bgr.com/2084725/worst-home-applicance-2025-according-consumer-reports"
+    ]
+   ],
+   "read": "2026-11-19"
   }
  ]
 };

@@ -16,230 +16,127 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
 @media(max-width:360px){.hero h1{font-size:clamp(34px,13.15vw,48px)}}
 @media(max-width:565px){.wrap{padding-inline:15px}.top{padding-block:14px}.hero{display:block;padding-block:33px 40px}.receipt{display:none}.finder{padding:16px}.finder-heading,.view-head{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.query{grid-template-columns:1fr}.btn,.chip{min-height:40px}.view-head{gap:10px}}
 .checked{display:block;margin-top:3px;font-weight:600}.checked.missing{color:var(--rust)}.near-shelf{margin-top:26px}.near-shelf h3{font:700 26px/1.1 Georgia,serif;margin-bottom:6px}.pill.watch{background:#fbe7c7;color:#583913}.result-head{font:700 24px/1.1 Georgia,serif;margin:26px 0 10px}.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:8px 0 4px;background:#e6ddd2}.bar i{display:block;height:100%}.bar .b{background:#b5463f}.bar .n{background:#cfc4b6}.bar .g{background:#5f8a4f}.live-title{font-size:15px;margin:0 0 8px;font-weight:750;overflow-wrap:anywhere}.host{display:block;color:var(--muted)}.whatsnew h3{margin:16px 0 4px}.whatsnew ul{margin:0 0 6px;padding-left:20px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}.price{color:var(--muted);font-weight:800;font-size:14px}.src-read{display:block;font-size:12px;color:var(--muted);margin-top:6px}.dispute{font-size:14px;border-left:3px solid #b48a38;padding-left:10px;margin:0 0 12px}.count-line{color:var(--muted);margin:0 0 14px;font-size:14px}.notefield{display:grid;gap:4px;font-size:14px;font-weight:750;margin-top:8px}.notefield textarea{resize:vertical;min-height:78px;width:100%}.shortlist-card{max-width:none}.top .btn{white-space:nowrap}.card .actions .btn{font-size:14px;padding:7px 11px}.btn.accent[aria-pressed=true]{background:var(--lav);border-color:var(--purple)}
 </style>
 </head>
 <body>
 <header class="mast"><div class="wrap">
-  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><button id="version" class="btn version-btn" type="button" aria-haspopup="dialog" aria-label="What’s new in this version"></button></div></div>
-  <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money<br><span class="hero-line">Wasting <em>Expert</em></span></h1><p>Where more buyers gave 1–2 stars than 4–5. Check before you buy!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
+  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><button id="nav" class="btn" type="button">Book shortlist <span class="count" id="count">0</span></button><button id="version" class="btn version-btn" type="button" aria-haspopup="dialog" aria-label="What’s new in this version"></button></div></div>
+  <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money<br><span class="hero-line">Wasting <em>Expert</em></span></h1><p>The worst buys we can find, with receipts. Tested badly, rated badly or flopped spectacularly. Check before you buy!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
 </div></header>
 <main class="wrap">
-<section class="finder" id="finder" aria-labelledby="finder-title">
-  <div class="finder-heading"><div><p class="section-label">Search any product</p><h2 id="finder-title">Is it a waste of money?</h2><p>Type a product or model. We’ll show anything we’ve tested, and where to check the star ratings yourself.</p></div></div>
-  <form id="search" class="query"><label for="q" class="sr-only">Product or model</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try air fryer, robot vacuum or Rabbit R1" required><button class="btn primary" id="submit-search">Search</button></form>
-  <div class="chips" id="chips"><button type="button" class="chip" data-q="air fryer">Air fryers</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="toaster">Toasters</button><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button></div>
-  <p class="fine" id="search-note">We can’t read live star counts from Amazon or Argos from this page. Products we’ve checked are shown with their counts. For anything else, use the links to open the listing and look at its star breakdown.</p>
-</section>
-<section class="view" id="results" aria-labelledby="results-title" hidden>
-  <div class="view-head"><div><p class="section-label">Search results</p><h2 id="results-title" tabindex="-1">Results</h2></div><button id="close-results" type="button" class="btn">Clear search</button></div>
-  <h3 class="result-head">Products we’ve tested</h3>
-  <div id="tested" class="grid"></div>
-  <div id="live" hidden>
-    <h3 class="result-head">Amazon UK, live</h3>
-    <p class="fine" style="margin-top:0">Lowest-rated matching listings first. Amazon shows a weighted percentage breakdown, not a count of buyers, so treat it as a strong lead.</p>
-    <div id="live-amazon" class="grid" aria-live="polite"></div>
-    <details id="live-other" hidden><summary>Other Amazon UK results (average rating only)</summary><ul id="live-other-list" class="sources"></ul></details>
-    <h3 class="result-head">Argos and other retailers</h3>
-    <p class="fine" style="margin-top:0">Argos doesn’t share star counts with search tools, so open the listing and check the breakdown yourself.</p>
-    <ul id="live-retail" class="sources" aria-live="polite"></ul>
-    <h3 class="result-head">Independent reviews and forums</h3>
-    <ul id="live-indep" class="sources" aria-live="polite"></ul>
-  </div>
-  <h3 class="result-head">Check the ratings yourself</h3>
-  <p class="fine" style="margin-top:0">On Amazon UK, click the star rating on the listing to see the five-star breakdown. On Argos, scroll to Reviews. You’re looking for more 1–2★ than 4–5★.</p>
-  <div id="external" class="links" aria-label="Search other sources"></div>
-  <h3 class="result-head">Discussion leads</h3>
-  <p class="fine" style="margin-top:0">Hacker News stories and comments. These are leads, not buyer reviews.</p>
-  <p id="status" class="fine" role="status"></p><div id="hits" class="grid" style="margin-top:14px"></div>
-</section>
-<section class="view review-board" id="top-reviews" aria-labelledby="top-reviews-title">
-  <div class="view-head"><div><p class="section-label">The one- and two-star shelf</p><h2 id="top-reviews-title">More bad ratings than good</h2><p class="sub">Only listings with at least 50 ratings where 1–2 stars beat 4–5 stars by at least a tenth of all ratings. Three stars are neutral. We show the retailer’s figures, not a verdict on every item sold.</p></div><label class="sr-only" for="review-filter">Filter review quotes by star rating</label><select id="review-filter" hidden><option value="all">All qualifying picks</option><option value="1">1-star quotes</option><option value="2">2-star quotes</option></select></div>
-  <div id="review-cards" class="grid review-grid"></div>
-  <div id="near-shelf" class="near-shelf" hidden><p class="section-label">On the watch list</p><h3>Not quite there yet</h3><p class="sub">Low ratings lead, but there aren’t enough ratings or the gap is too thin to feature. Check back before you buy.</p><div id="near-cards" class="grid review-grid" style="margin-top:14px"></div></div>
-  <details class="rating-audit"><summary>What didn’t make the cut</summary><p class="fine">These listings were checked against the ratings test and don’t pass. Some were well rated and others didn’t have enough ratings.</p><ul id="audit-list"></ul></details>
+<section class="view" id="hall" aria-labelledby="hall-title" style="margin-top:34px">
+  <div class="view-head"><div><p class="section-label">The hall of shame</p><h2 id="hall-title">Worst buys on file</h2><p class="sub">Each one links to the original test, review or report. The tests are the sources’ findings, summarised. The jokes are ours.</p></div></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter products"></div>
+  <p class="count-line" id="count-line" role="status"></p>
+  <div id="cards" class="grid"></div>
   <aside class="waste-note" aria-labelledby="waste-title"><p class="section-label">The serious bit</p><h3 id="waste-title">You buy cheap, you buy twice!</h3><p>Before you buy, ask whether something you already own will do the job. Borrow a gadget you’ll only use once, and check for repair options before replacing it. If an electrical item is beyond repair, <a href="https://www.recyclenow.com/recycle-an-item/electrical-items" target="_blank" rel="noopener noreferrer">find out where to recycle it in the UK</a>.</p></aside>
 </section>
-<section class="view" id="archive" aria-labelledby="archive-title">
-  <div class="view-head"><div><p class="section-label">The evidence drawer</p><h2 id="archive-title">The archive</h2><p class="sub">A small, hand-picked collection of review leads, past flops and deliberate parody.</p></div><label class="sr-only" for="filter">Filter starter case files</label><select id="filter"><option value="all">All case files</option><option>Product tests</option><option>Launch reviews</option><option>Discontinued</option><option>Review parody</option></select></div>
-  <div id="cases" class="grid"></div>
+<section class="view" id="shortlist" aria-labelledby="short-title" hidden>
+  <div class="view-head"><div><p class="section-label">Your funny book</p><h2 id="short-title" tabindex="-1">Book shortlist</h2><p class="sub">Saved in this browser only. Download a copy to take it with you.</p></div><div class="actions"><button class="btn" id="export" type="button">Download book notes</button><button class="btn" id="back" type="button">Back to the hall of shame</button></div></div>
+  <p id="storage-message" class="fine notice" role="status"></p>
+  <div id="saved" class="stack"></div>
 </section>
 </main>
-<footer class="footer"><div class="wrap"><p>Independent satire and research. A bad review is a lead, not a verdict. Check the exact model, date and wider reception before you buy or put it in print.</p><p class="footer-disclaimer">Money Wasting Expert is just for fun (although we should be careful of what we throw away) and not associated in any way with a well-known financial advisory service you might have heard of... or seen on the telly!</p></div></footer>
+<footer class="footer"><div class="wrap"><p>Independent satire and research. A bad test or review is a lead, not a verdict, and makers sometimes disagree with the findings. Check the exact model, date and wider reception before you buy or put it in print.</p><p class="footer-disclaimer">Money Wasting Expert is just for fun (although we should be careful of what we throw away) and not associated in any way with a well-known financial advisory service you might have heard of... or seen on the telly!</p></div></footer>
 <dialog id="whatsnew" class="whatsnew" aria-labelledby="whatsnew-title"><h2 id="whatsnew-title">What’s new</h2><div id="whatsnew-body"></div><div class="actions" style="margin-top:14px"><button class="btn primary" id="whatsnew-close" type="button">Close</button></div></dialog>
-<script src="config.js"></script>
 <script src="data/products.js"></script>
 <script src="js/rating.js"></script>
 <script>
 'use strict';
-const {evaluateRating,displayedRating,explain,isNearMiss,sum}=MWERating;
-const {cases,photos,featured,nearMisses,audit,whatsNew}=MWE_DATA;
+const {evaluateRating,displayedRating}=MWERating;
+const {cases,photos,featured,shame,whatsNew}=MWE_DATA;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function webUrl(s){try{const u=new URL(s);return ['http:','https:'].includes(u.protocol)&&!u.username&&!u.password?u.href:''}catch{return ''}}
 function link(url,label){const safe=webUrl(url);return safe?'<a href="'+esc(safe)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+'</a>':esc(label)}
-function plain(html){const t=document.createElement('template');t.innerHTML=String(html??'').replace(/<(?:p|br)\b[^>]*>/gi,' ');return (t.content.textContent||'').replace(/\s+/g,' ').trim()}
-function clip(s,n){if(Array.from(s).length<=n)return s;const part=Array.from(s).slice(0,n).join('');return part.replace(/\s+\S*$/,'')+'…'}
-function excerpt(s,q){const terms=q.toLowerCase().split(/\s+/).filter(x=>x.length>2);const low=s.toLowerCase();const places=terms.map(x=>low.indexOf(x)).filter(x=>x>=0);const at=places.length?Math.min(...places):0;const start=Math.max(0,at-50);return (start?'…':'')+clip(s.slice(start).replace(/^\S+\s+/,m=>start?'':m),180)}
 function niceDate(iso){const d=/^\d{4}-\d\d-\d\d$/.test(iso||'')?new Date(iso+'T00:00:00Z'):null;return d&&!isNaN(d)?d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}):''}
-function listSources(sources){return '<ul class="sources">'+sources.map(([label,detail,url])=>'<li>'+link(url,label)+'<span>'+esc(detail)+'</span></li>').join('')+'</ul>'}
+function listSources(sources,read){return '<ul class="sources">'+sources.map(([label,detail,url])=>'<li>'+link(url,label)+'<span>'+esc(detail)+'</span></li>').join('')+'</ul>'+(read?'<span class="src-read">Source read '+esc(niceDate(read))+'</span>':'')}
 
 /* Version badge and What's new */
-const VERSION=whatsNew[0].version;
-$('version').textContent=VERSION;
+$('version').textContent=whatsNew[0].version;
 $('whatsnew-body').innerHTML=whatsNew.map(w=>'<h3>'+esc(w.version)+' · '+esc(w.title)+'</h3><ul>'+w.items.map(i=>'<li>'+esc(i)+'</li>').join('')+'</ul>').join('');
 $('version').addEventListener('click',()=>$('whatsnew').showModal());
 $('whatsnew-close').addEventListener('click',()=>$('whatsnew').close());
 
-/* Product photos: retailer-hosted, with a text fallback if the image won't load. */
+/* Photos: retailer-hosted, with a text fallback if one won't load. */
 function productThumb(x){
  const photo=Object.hasOwn(photos,x.id)?photos[x.id]:null;if(!photo)return '';
  const [src,credit,source]=photo;
- return '<figure class="product-thumb sourced"><img data-product-photo="'+esc(x.id)+'" '+(x.id.startsWith('review-')?'':'loading="lazy" ')+'decoding="async" referrerpolicy="no-referrer" alt="'+esc(x.name)+'" src="'+esc(src)+'"><span class="photo-fallback" hidden>Product photo unavailable</span><figcaption>Photo · '+link(source,credit)+'</figcaption></figure>';
+ return '<figure class="product-thumb sourced"><img data-product-photo="'+esc(x.id)+'" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="'+esc(x.name)+'" src="'+esc(src)+'"><span class="photo-fallback" hidden>Product photo unavailable</span><figcaption>Photo · '+link(source,credit)+'</figcaption></figure>';
 }
 document.addEventListener('error',e=>{const img=e.target;if(!img.matches?.('[data-product-photo]'))return;img.hidden=true;img.nextElementSibling.hidden=false},true);
 
-/* The one- and two-star shelf */
-function viewProduct(x){const url=webUrl(x.productUrl);return url?'<a class="btn accent" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="View product: '+esc(x.name)+'">View product</a>':''}
-function checkedLine(x){const d=niceDate(x.checked);return d?'<span class="checked">Counts checked '+esc(d)+'</span>':'<span class="checked missing">Check date not recorded. Recheck before citing.</span>'}
-function ratingProof(x,r,note){return '<p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on '+esc(x.source||'the retailer')+' · snapshot</strong>'+esc(displayedRating(r))+(note?'<span class="checked">'+esc(note)+'</span>':'')+checkedLine(x)+'</p>'}
-function reviewCard(x,r,watch){
- const quote=x.snippet?'<blockquote>“'+esc(x.snippet)+'”</blockquote>':'';
- return '<article class="card review-card">'+productThumb(x)+'<header><span class="pill '+(watch?'watch':'rating-pill')+'">'+(watch?'Watch list':x.stars+'-star customer quote')+'</span></header><h3>'+esc(x.name)+'</h3>'+ratingProof(x,r,watch?'Not featured: '+explain(r)+'.':'')+quote+(x.reviewNote?'<p class="review-tip">'+esc(x.reviewNote)+'</p>':'')+(x.tip?'<p class="review-tip"><strong>Before you buy</strong> — '+esc(x.tip)+'</p>':'')+listSources(x.sources||[])+'<div class="actions">'+viewProduct(x)+'</div></article>';
+/* Build one list of everything on the hall of shame */
+const KIND={lab:'Tested and failed',flop:'Famous flops',ratings:'Customer ratings',parody:'Parody'};
+const caseKind={'Product tests':'lab','Launch reviews':'flop','Discontinued':'flop','Review parody':'parody'};
+const items=[];
+for(const f of featured){const r=evaluateRating({whole:f.whole,total:f.total,mode:f.mode});if(!(r.valid&&r.state==='pass'))continue;
+ items.push({id:f.id,name:f.name,kind:'ratings',badge:f.stars+'-star customer ratings',label:'More bad ratings than good',summary:f.reviewNote||'',angle:'',snippet:f.snippet,tip:f.tip,proof:{r,source:f.source,checked:f.checked},productUrl:f.productUrl,sources:f.sources})}
+for(const x of shame)items.push(x);
+for(const c of cases)items.push({id:c.id,name:c.name,kind:caseKind[c.category]||'flop',badge:c.badge,tone:c.tone,label:c.label,summary:c.summary,angle:c.angle,sources:c.sources});
+const order={ratings:0,lab:1,flop:2,parody:3};
+items.sort((a,b)=>(order[a.kind]-order[b.kind]));
+const byId=new Map(items.map(x=>[x.id,x]));
+
+/* Saved book shortlist (same browser key as earlier versions) */
+const key='mwe-shortlist-v1';
+let saved=[];
+try{const raw=JSON.parse(localStorage.getItem(key)||'[]');saved=Array.isArray(raw)?raw.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&Array.isArray(x.sources)):[]}catch{$('storage-message').textContent='This browser could not read your saved shortlist.'}
+function persist(){try{localStorage.setItem(key,JSON.stringify(saved));$('storage-message').textContent='';return true}catch{$('storage-message').textContent='This browser couldn’t save changes permanently. Download your book notes before closing the page.';return false}}
+const isSaved=id=>saved.some(x=>x.id===id);
+function saveButton(x){const on=isSaved(x.id);return '<button type="button" class="btn '+(on?'':'accent')+'" data-save="'+esc(x.id)+'" aria-pressed="'+on+'">'+(on?'In your book · remove':'+ Add to book')+'</button>'}
+
+/* Cards */
+function proofHtml(p){const r=p.r;return '<p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on '+esc(p.source||'the retailer')+' · snapshot</strong>'+esc(displayedRating(r))+'<span class="checked'+(p.checked?'':' missing')+'">'+(p.checked?'Counts checked '+esc(niceDate(p.checked)):'Check date not recorded. Recheck before citing.')+'</span></p>'}
+function card(x){
+ const q=encodeURIComponent(x.name);
+ const sell=x.productUrl?'<a class="btn" href="'+esc(webUrl(x.productUrl))+'" target="_blank" rel="noopener noreferrer">View product</a>':'';
+ return '<article class="card" data-kind="'+esc(x.kind)+'">'+productThumb(x)+'<header><span class="pill '+esc(x.tone||(x.kind==='lab'?'test':''))+'">'+esc(x.badge)+'</span>'+(x.price?'<span class="price">'+esc(x.price)+'</span>':'')+'</header><p class="number">'+esc(x.label)+(x.region?' · '+esc(x.region)+' model':'')+'</p><h3>'+esc(x.name)+'</h3>'+(x.proof?proofHtml(x.proof):'')+(x.snippet?'<blockquote>“'+esc(x.snippet)+'”</blockquote>':'')+(x.summary?'<p>'+esc(x.summary)+'</p>':'')+(x.note?'<p class="review-tip">'+esc(x.note)+'</p>':'')+(x.dispute?'<p class="dispute">'+esc(x.dispute)+'</p>':'')+(x.angle?'<details><summary>MWE aside (original, not a review)</summary><div>'+esc(x.angle)+'</div></details>':'')+listSources(x.sources,x.read)+'<div class="actions">'+saveButton(x)+sell+'<a class="btn" href="https://www.amazon.co.uk/s?k='+q+'" target="_blank" rel="noopener noreferrer">Amazon UK</a><a class="btn" href="https://www.argos.co.uk/search/'+q+'/" target="_blank" rel="noopener noreferrer">Argos</a></div></article>';
 }
-function renderFeatured(){
- const value=$('review-filter').value;
- const all=featured.map(x=>({x,r:evaluateRating({whole:x.whole,total:x.total,mode:x.mode})})).filter(({r})=>r.valid&&r.state==='pass'&&r.mode==='count');
- $('review-filter').hidden=all.length<4;
- const rows=all.filter(({x})=>value==='all'||x.stars===Number(value));
- $('review-cards').innerHTML=rows.length?rows.map(({x,r})=>reviewCard(x,r,false)).join(''):'<p class="empty">No listings pass the ratings test yet. Use “Check a product” below to test one you’re wondering about.</p>';
- const near=nearMisses.map(x=>({x,r:evaluateRating({whole:x.whole,total:x.total,mode:x.mode})})).filter(({r})=>isNearMiss(r));
- $('near-shelf').hidden=!near.length;
- $('near-cards').innerHTML=near.map(({x,r})=>reviewCard(x,r,true)).join('');
- $('audit-list').innerHTML=audit.map(x=>{const r=evaluateRating({whole:x.whole,total:sum(x.whole),mode:'count'});const url=x.productUrl||(x.sku?'https://www.argos.co.uk/product/'+x.sku:'');return '<li>'+link(url,x.name)+' · '+r.total+' total · '+r.bad+' low, '+r.good+' high · '+esc(explain(r))+(x.checked?' · checked '+esc(niceDate(x.checked)):'')+'</li>'}).join('');
+let filter='all';
+function renderFilters(){
+ const counts={all:items.length};for(const x of items)counts[x.kind]=(counts[x.kind]||0)+1;
+ $('filters').innerHTML=['all',...Object.keys(KIND).filter(k=>counts[k])].map(k=>'<button type="button" class="chip" data-filter="'+k+'" aria-pressed="'+(filter===k)+'">'+(k==='all'?'Everything':KIND[k])+' <span class="count">'+counts[k]+'</span></button>').join('');
+}
+function renderCards(){
+ const rows=items.filter(x=>filter==='all'||x.kind===filter);
+ $('cards').innerHTML=rows.map(card).join('');
+ $('count-line').textContent=rows.length+(rows.length===1?' product':' products');
 }
 
-/* Archive */
-function caseCard(x){return '<article class="card">'+productThumb(x)+'<header><span class="pill '+esc(x.tone||'')+'">'+esc(x.badge)+'</span></header><p class="number">'+esc(x.label)+'</p><h3>'+esc(x.name)+'</h3><p>'+esc(x.summary)+'</p><details><summary>MWE aside (original, not a review)</summary><div>'+esc(x.angle)+'</div></details>'+listSources(x.sources)+'<div class="actions"><button type="button" class="btn" data-search="'+esc(x.name)+'">Find comments</button></div></article>'}
-function renderCases(){const cat=$('filter').value;$('cases').innerHTML=cases.filter(x=>cat==='all'||x.category===cat).map(caseCard).join('')}
-
-/* Research desk (Hacker News discussion leads) */
-let findings=[],controller=null,activeTerm='';
-function hitCard(x){return '<article class="card"><header><span class="pill">'+esc(x.badge)+'</span><span class="number">'+esc(x.date)+'</span></header><h3>'+esc(x.name)+'</h3>'+(x.snippet?'<blockquote>'+esc(x.snippet)+'</blockquote>':'')+listSources(x.sources)+'</article>'}
-function sourceLinks(q){
- const enc=encodeURIComponent,g=t=>'https://www.google.co.uk/search?q='+enc(t);
- return [
-  ['https://www.amazon.co.uk/s?k='+enc(q),'Search Amazon UK'],
-  ['https://www.argos.co.uk/search/'+enc(q)+'/','Search Argos'],
-  [g('site:amazon.co.uk '+q+' global ratings 1 star'),'Amazon UK ratings via Google'],
-  [g(q+' product review complaints UK'),'UK web reviews'],
-  ['https://www.reddit.com/search/?q='+enc(q+' review'),'Reddit discussions'],
-  [g('site:which.co.uk '+q+' review'),'Which? tests']
- ].map(([url,label])=>link(url,label)).join('');
+/* Shortlist view */
+let view='hall';
+function setCount(){$('count').textContent=saved.length;$('export').disabled=!saved.length}
+function renderSaved(){
+ setCount();
+ $('saved').innerHTML=saved.length?saved.map((x,i)=>'<article class="card shortlist-card"><header><span class="pill">'+esc(x.badge||'')+'</span></header><h3>'+esc(x.name)+'</h3>'+(x.summary?'<p>'+esc(x.summary)+'</p>':'')+(x.angle?'<p class="fine">MWE aside (original) — '+esc(x.angle)+'</p>':'')+listSources(x.sources,x.read)+'<label class="notefield">Your book notes<textarea data-note="'+i+'" maxlength="3000" placeholder="What’s the story here? What still needs checking?">'+esc(x.note||'')+'</textarea></label><div class="actions"><button class="btn" type="button" data-save="'+esc(x.id)+'">Remove</button></div></article>').join(''):'<p class="empty">Nothing in the book yet. Use “Add to book” on a product in the hall of shame.</p>';
 }
-/* Tested listings that match the search */
-function testedMatches(q){
- const terms=q.toLowerCase().split(/\s+/).filter(Boolean);
- const hit=x=>{const n=x.name.toLowerCase();return terms.every(t=>n.includes(t))};
- const out=[];
- for(const x of featured)if(hit(x)){const r=evaluateRating({whole:x.whole,total:x.total,mode:x.mode});if(r.valid&&r.state==='pass')out.push(reviewCard(x,r,false))}
- for(const x of nearMisses)if(hit(x)){const r=evaluateRating({whole:x.whole,total:x.total,mode:x.mode});if(isNearMiss(r))out.push(reviewCard(x,r,true))}
- for(const x of audit)if(hit(x)){const r=evaluateRating({whole:x.whole,total:sum(x.whole),mode:'count'});const url=x.productUrl||(x.sku?'https://www.argos.co.uk/product/'+x.sku:'');out.push('<article class="card"><header><span class="pill">Not a waste, on these numbers</span></header><h3>'+esc(x.name)+'</h3><p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on Argos · snapshot</strong>'+esc(displayedRating(r))+'<span class="checked">'+esc(explain(r).replace(/^./,c=>c.toUpperCase()))+'.</span>'+checkedLine(x)+'</p><div class="actions">'+viewProduct({name:x.name,productUrl:url})+'</div></article>')}
- return out.length?out.join(''):'<p class="empty">We haven’t tested “'+esc(q)+'” yet. Use the links below to check its ratings.</p>';
-}
-const complaint=/\b(worst|awful|poor|bad|terrible|disappoint\w*|useless|overpric\w*|waste\w*|unreliab\w*|regret\w*|flop\w*|return\w*|broke\w*|fail\w*|refund\w*|issues?|problems?|unusable)\b/gi;
-function priority(h){return Math.min(8,(h.text.match(complaint)||[]).length)*2+(h.badge==='Discussion comment'?1:0)}
-function convert(h,kind,term){
- const id=String(h.objectID||'');if(!/^\d+$/.test(id))return null;
- const discussion='https://news.ycombinator.com/item?id='+id;
- const name=plain(kind==='comment'?h.story_title:h.title);
- const text=plain(kind==='comment'?h.comment_text:h.story_text);
- if(!name&&!text||kind==='comment'&&!text)return null;
- const date=typeof h.created_at==='string'&&/^\d{4}-\d\d-\d\d/.test(h.created_at)?h.created_at.slice(0,10):'';
- const url=webUrl(h.url);
- const badge=kind==='comment'?'Discussion comment':'Story lead';
- const sources=kind==='comment'?[['Original HN comment',date?date+' · unverified commenter':'Unverified commenter',discussion]]:[['Hacker News thread',date?date+' · discussion thread':'Discussion thread',discussion],...(url&&url!==discussion?[['Linked article',new URL(url).hostname,url]]:[])];
- return {id:'hn-'+id,name:name||'Comment matching '+term,badge,date,snippet:excerpt(text,term),text:name+' '+text,sources};
-}
-async function fetchHits(q,tag,signal){
- const url=new URL('https://hn.algolia.com/api/v1/search');
- url.search=new URLSearchParams({query:q,tags:tag,hitsPerPage:'18'}).toString();
- const response=await fetch(url,{signal,credentials:'omit'});if(!response.ok)throw new Error('Search unavailable');
- const data=await response.json();if(!Array.isArray(data.hits))throw new Error('Search response missing hits');
- return data.hits.map(h=>convert(h,tag,q)).filter(Boolean);
-}
-async function runSearch(term,focus=false){
- const q=term.trim().slice(0,100);if(!q)return;
- if(controller)controller.abort();
- const current=new AbortController();controller=current;activeTerm=q;findings=[];
- $('q').value=q;
- $('results').hidden=false;$('results-title').textContent='Results for “'+q+'”';
- $('tested').innerHTML=testedMatches(q);$('external').innerHTML=sourceLinks(q);$('hits').replaceChildren();$('live').hidden=true;loadLive(q,current);
- $('status').textContent='Looking for stories and discussion comments…';
- document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.q===q));
- if(focus)$('results-title').focus();
- const timer=setTimeout(()=>current.abort(),9000);
- const replies=await Promise.allSettled([fetchHits(q,'story',current.signal),fetchHits(q,'comment',current.signal)]);
- clearTimeout(timer);if(controller!==current)return;
- const unique=new Map();
- for(const reply of replies)if(reply.status==='fulfilled')for(const row of reply.value)if(!unique.has(row.id))unique.set(row.id,row);
- const ordered=[...unique.values()].sort((a,b)=>priority(b)-priority(a));
- const comments=ordered.filter(x=>x.badge==='Discussion comment').slice(0,9);
- const stories=ordered.filter(x=>x.badge==='Story lead').slice(0,6);
- findings=[...comments,...stories].sort((a,b)=>priority(b)-priority(a));
- const failed=replies.filter(r=>r.status==='rejected').length;
- $('status').textContent=failed===2?'Live discussion search is unavailable right now. Try the search links above.':findings.length?comments.length+' discussion '+(comments.length===1?'comment':'comments')+' and '+stories.length+' story '+(stories.length===1?'lead':'leads')+' shown. Complaint words move a lead up, but don’t make it a bad product.'+(failed?' One search source did not respond.':''):'No matching discussion leads. Try the exact product name or use the links above.'+(failed?' One search source did not respond.':'');
- $('hits').innerHTML=findings.map(hitCard).join('');
-}
-function clearSearch(){if(typeof liveCtl!=='undefined'&&liveCtl)liveCtl.abort();if(controller)controller.abort();controller=null;activeTerm='';findings=[];$('results').hidden=true;$('q').value='';document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed','false'));$('q').focus()}
-
-/* Live results (needs the Worker address in config.js) */
-const API=String(window.MWE_API||'').replace(/\/+$/,'');
-const apiGet=async(path,q,signal)=>{const res=await fetch(API+path+'?q='+encodeURIComponent(q),{signal,credentials:'omit'});let body=null;try{body=await res.json()}catch{}if(!res.ok)throw Object.assign(new Error(body?.error||'unavailable'),{status:res.status});return body};
-const VERDICT={pass:['More 1–2★ than 4–5★','rating-pill'],close:['Close, but not clearly bad',''],uncertain:['Too close to call',''],no:['Mostly well rated',''],small:['Not enough ratings','']};
-function amazonCard(x,when){
- const r=evaluateRating({whole:x.percent,total:Number.isSafeInteger(x.ratingsTotal)?x.ratingsTotal:0,mode:'percent'});
- const [label,cls]=r.valid?VERDICT[r.state]:['Breakdown unreadable',''];
- const bar=r.valid?'<div class="bar" role="img" aria-label="'+esc(displayedRating(r))+'"><i class="b" style="width:'+r.bad+'%"></i><i class="n" style="width:'+r.neutral+'%"></i><i class="g" style="width:'+r.good+'%"></i></div>':'';
- return {r,html:'<article class="card review-card"><header><span class="pill '+cls+'">'+esc(label)+'</span></header><h3 class="live-title">'+link(x.url,x.title)+'</h3><p class="rating-proof"><strong>'+(r.valid?r.total.toLocaleString('en-GB'):'?')+' ratings on Amazon UK · live</strong>'+(r.valid?esc(displayedRating(r)):'')+bar+'<span class="checked">Average '+esc(x.rating??'?')+' out of 5.'+(when?' Checked '+esc(when)+'.':'')+'</span></p><div class="actions">'+viewProduct({name:x.title,productUrl:x.url})+'</div></article>'};
-}
-function renderAmazon(d){
- const when=niceDate(String(d.fetchedAt||'').slice(0,10));
- const withBd=d.results.filter(x=>Array.isArray(x.percent)).map(x=>amazonCard(x,when));
- const rank={pass:0,close:1,uncertain:2,small:3,no:4};
- withBd.sort((a,b)=>(rank[a.r.state]??5)-(rank[b.r.state]??5)||(b.r.margin||0)-(a.r.margin||0));
- const flagged=withBd.filter(x=>x.r.state==='pass').length;
- $('live-amazon').innerHTML=withBd.length?withBd.map(x=>x.html).join(''):'<p class="empty">'+(d.results.length?'We couldn’t read star breakdowns for these listings right now. Open them on Amazon to check.':'No Amazon UK listings found for that search.')+'</p>';
- const rest=d.results.filter(x=>!Array.isArray(x.percent));
- $('live-other').hidden=!rest.length;
- $('live-other-list').innerHTML=rest.map(x=>'<li>'+link(x.url,x.title)+'<span>'+(x.rating!=null?esc(x.rating)+' out of 5':'No rating')+(x.ratingsTotal!=null?' · '+esc(Number(x.ratingsTotal).toLocaleString('en-GB'))+' ratings':'')+'</span></li>').join('');
- return flagged;
-}
-function webList(rows,empty){return rows.length?rows.map(r=>'<li>'+link(r.url,r.title)+'<span>'+esc(r.snippet)+'</span><span class="host">'+esc(r.host)+(r.kind==='community'?' · forum or community':'')+'</span></li>').join(''):'<li><span>'+esc(empty)+'</span></li>'}
-if(API)$('search-note').textContent='Searches Amazon UK live for the lowest-rated matches, plus Argos, other retailers and independent reviews. Argos doesn’t share star counts, so open its listings to check. Products we’ve tested before show their counts.';
-let liveCtl=null;
-async function loadLive(q,token){
- if(liveCtl)liveCtl.abort();
- if(!API)return;
- const ctl=new AbortController();liveCtl=ctl;const signal=ctl.signal;
- $('live').hidden=false;
- $('live-amazon').innerHTML='<p class="empty">Searching Amazon UK…</p>';$('live-other').hidden=true;
- $('live-retail').innerHTML='<li><span>Searching…</span></li>';$('live-indep').innerHTML='<li><span>Searching…</span></li>';
- const timer=setTimeout(()=>ctl.abort(),25000);
- const [am,web]=await Promise.allSettled([apiGet('/api/amazon',q,signal),apiGet('/api/web',q,signal)]);
- clearTimeout(timer);if(controller!==token||liveCtl!==ctl)return;
- const why=e=>e?.status===429?'Today’s live search limit has been reached. Try again tomorrow, or use the links below.':'Live results are unavailable right now. Use the links below.';
- if(am.status==='fulfilled')renderAmazon(am.value);else $('live-amazon').innerHTML='<p class="empty">'+esc(why(am.reason))+'</p>';
- if(web.status==='fulfilled'){$('live-retail').innerHTML=webList(web.value.retailers||[],'No retailer pages found.');$('live-indep').innerHTML=webList([...(web.value.independent||[]),...(web.value.community||[])],'No independent pages found.')}
- else{const m='<li><span>'+esc(why(web.reason))+'</span></li>';$('live-retail').innerHTML=m;$('live-indep').innerHTML=m}
+function showView(next){view=next;const on=next==='shortlist';$('hall').hidden=on;$('shortlist').hidden=!on;$('nav').firstChild.textContent=on?'Back to hall of shame ':'Book shortlist ';if(on){renderSaved();$('short-title').focus()}}
+function exportNotes(list){
+ const flat=s=>String(s??'').replace(/[\r\n]+/g,' ').trim();
+ const row=x=>['## '+flat(x.name),'',flat(x.badge)+(x.added?' · Added '+flat(x.added):''),'',x.summary?flat(x.summary):'',x.angle?'MWE aside (original) — '+flat(x.angle):'',x.note?'Your notes\n\n'+x.note.trim():'','Sources',...x.sources.map(([label,detail,url])=>'- '+flat(label)+' ('+flat(detail)+') — '+webUrl(url)),''].join('\n');
+ return '# Money Wasting Expert — book research\n\nResearch notes, not a manuscript. Test results are summaries of the linked sources. Recheck dates, models and any dispute from the maker before publication.\n\n'+list.map(row).join('\n');
 }
 
 /* Wiring */
-$('filter').addEventListener('change',renderCases);
-$('review-filter').addEventListener('change',renderFeatured);
-$('search').addEventListener('submit',e=>{e.preventDefault();runSearch($('q').value,true)});
-$('close-results').addEventListener('click',clearSearch);
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.q||b.dataset.search)runSearch(b.dataset.q||b.dataset.search,true)});
-renderFeatured();renderCases();
+document.addEventListener('click',e=>{
+ const f=e.target.closest('[data-filter]');if(f){filter=f.dataset.filter;renderFilters();renderCards();return}
+ const b=e.target.closest('[data-save]');if(!b)return;
+ const id=b.dataset.save;
+ if(isSaved(id))saved=saved.filter(x=>x.id!==id);
+ else{const x=byId.get(id);if(!x)return;saved.unshift({id:x.id,name:x.name,badge:x.badge,summary:x.summary||'',angle:x.angle||'',sources:x.sources,read:x.read||'',note:'',added:new Date().toISOString().slice(0,10)})}
+ persist();setCount();
+ document.querySelectorAll('[data-save]').forEach(btn=>{if(btn.dataset.save===id&&btn.hasAttribute('aria-pressed')){const on=isSaved(id);btn.classList.toggle('accent',!on);btn.setAttribute('aria-pressed',on);btn.textContent=on?'In your book · remove':'+ Add to book'}});
+ if(view==='shortlist'){renderSaved();$('short-title').focus()}
+});
+$('saved').addEventListener('input',e=>{if(e.target.dataset.note!==undefined){const row=saved[Number(e.target.dataset.note)];if(row){row.note=e.target.value;persist()}}});
+$('nav').addEventListener('click',()=>showView(view==='hall'?'shortlist':'hall'));
+$('back').addEventListener('click',()=>showView('hall'));
+$('export').addEventListener('click',()=>{
+ if(!saved.length)return;const blob=new Blob([exportNotes(saved)],{type:'text/markdown;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='MWE-book-notes.md';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+});
+renderFilters();renderCards();setCount();
 </script>
 </body>
 </html>

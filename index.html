@@ -17,7 +17,7 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
 </head>
 <body>
 <header class="mast"><div class="wrap">
-  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><!-- Update this version with each published change. --><span class="version" aria-label="App version 0.1.6">v0.1.6</span><button id="nav" class="btn" type="button">Book shortlist <span class="count" id="count">0</span></button></div></div>
+  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><!-- Update this version with each published change. --><span class="version" aria-label="App version 0.1.7">v0.1.7</span><button id="nav" hidden class="btn" type="button">Book shortlist <span class="count" id="count">0</span></button></div></div>
   <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money well <em>wasted.</em></h1><p>Your 1 STAR reviews of the WORST products to hit the market!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
 </div></header>
 <main class="wrap">
@@ -27,7 +27,7 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
   <aside class="waste-note" aria-labelledby="waste-title"><p class="section-label">The serious bit</p><h3 id="waste-title">You buy cheap, you buy twice!</h3><p>Before you buy, ask whether something you already own will do the job. Borrow a gadget you’ll only use once, and check for repair options before replacing it. If an electrical item is beyond repair, <a href="https://www.recyclenow.com/recycle-an-item/electrical-items" target="_blank" rel="noopener noreferrer">find out where to recycle it in the UK</a>.</p></aside>
 </section>
 <section class="finder" id="finder" aria-labelledby="finder-title">
-  <div class="finder-heading"><div><p class="section-label">Research desk</p><h2 id="finder-title">Hunt for bad buys</h2><p>Search by product or topic. Start with a model name for more useful comments.</p></div><button class="btn" id="add" type="button">+ Add a lead</button></div>
+  <div class="finder-heading"><div><p class="section-label">Research desk</p><h2 id="finder-title">Hunt for bad buys</h2><p>Search by product or topic. Start with a model name for more useful comments.</p></div><button class="btn" id="add" hidden type="button">+ Add a lead</button></div>
   <form id="search" class="query"><label for="q" class="sr-only">Product or topic</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try Rabbit R1, robot vacuum or smart toaster" required><button class="btn primary" id="submit-search">Find discussion leads</button></form>
   <div class="chips" id="chips"><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="Juicero">Kitchen gadgets</button><button type="button" class="chip" data-q="Hutzler banana slicer">Novelty buys</button></div>
   <p class="fine">Optional research tool. Hacker News results are discussion leads, not buyer reviews. Use the UK review links for retailer and independent sources.</p>
@@ -192,7 +192,9 @@ let findings=[], controller=null, activeTerm='', side='research';
 function persist(){try{localStorage.setItem(key,JSON.stringify(saved));$('storage-message').textContent='';return true}catch{$('storage-message').textContent='This browser couldn’t save changes permanently. Download your book notes before closing the page.';return false}}
 function listSources(sources){return '<ul class="sources">'+sources.map(([label,detail,url])=>'<li>'+link(url,label)+'<span>'+esc(detail)+'</span></li>').join('')+'</ul>'}
 function isSaved(id){return saved.some(x=>x.id===id)}
-function saveButton(item){const on=isSaved(item.id);return '<button type="button" class="btn '+(on?'':'accent')+'" data-save="'+esc(item.id)+'" aria-pressed="'+on+'">'+(on?'Saved · remove':'+ Shortlist')+'</button>'}
+// The book shortlist is paused. Keep its existing browser data for a future release.
+const shortlistEnabled=false;
+function saveButton(item){if(!shortlistEnabled)return '';const on=isSaved(item.id);return '<button type="button" class="btn '+(on?'':'accent')+'" data-save="'+esc(item.id)+'" aria-pressed="'+on+'">'+(on?'Saved · remove':'+ Shortlist')+'</button>'}
 function caseCard(x){return '<article class="card">'+productThumb(x)+'<header><span class="pill '+esc(x.tone||'')+'">'+esc(x.badge)+'</span></header><p class="number">'+esc(x.label)+'</p><h3>'+esc(x.name)+'</h3><p>'+esc(x.summary)+'</p><details><summary>MWE aside (original, not a review)</summary><div>'+esc(x.angle)+'</div></details>'+listSources(x.sources)+'<div class="actions">'+saveButton(x)+' <button type="button" class="btn" data-search="'+esc(x.name)+'">Find comments</button></div></article>'}
 function renderFeatured(){
  const value=$('review-filter').value;

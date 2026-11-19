@@ -1,5 +1,9 @@
 # Money Wasting Expert — changelog and Claude handoff
 
+## v0.5.2 — book button removed
+
+- Removed the "+ Add to book" card button and hid the Book shortlist header link (shortlist code kept, unused, for later).
+
 ## v0.5.1 — photo thumbnails
 
 - Added `photos` entries for 7 of the 11 `shame[]` products (Hisense, Shark WandVac, Haier, Silentnight, House of Marley, Hamilton Beach, Hoover). Each URL was read from a real product page; credit and source link are shown on the card.

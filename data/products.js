@@ -444,6 +444,13 @@ const MWE_DATA = {
  ],
  "whatsNew": [
   {
+   "version": "v0.5.2",
+   "title": "No add-to-book button",
+   "items": [
+    "Removed the Add to book button and the Book shortlist link. The code is still there, switched off, for later."
+   ]
+  },
+  {
    "version": "v0.5.1",
    "title": "Photo thumbnails on the new cards",
    "items": [

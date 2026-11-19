@@ -7,26 +7,28 @@
 <meta name="description" content="A tongue-in-cheek research desk for product flops, buyer complaints and money badly spent.">
 <style>
 :root{--ink:#221925;--muted:#645969;--paper:#f9f6ef;--white:#fffdf8;--line:#ddd4c9;--purple:#321c39;--lime:#eaf47c;--lav:#eee4f3;--rust:#782f32;--radius:16px}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}button,input,textarea,select{font:inherit}button,a,input,textarea,select{touch-action:manipulation}button{cursor:pointer}a{color:inherit}a:hover{text-decoration-thickness:2px}:focus-visible{outline:3px solid #9d60ac;outline-offset:3px}[hidden]{display:none!important}.wrap{max-width:1200px;margin:auto;padding-inline:28px}.mast{background:var(--purple);color:#fffdf8}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:23px;border-bottom:1px solid #674e70}.brand{display:flex;align-items:center;gap:11px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;font-size:13px;line-height:1.18}.logo{display:grid;place-items:center;background:var(--lime);color:var(--ink);height:41px;width:41px;border-radius:10px;font-size:22px;font-weight:950;transform:rotate(-7deg)}.top-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}.version{color:#e9dce9;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}.top button{background:transparent;color:#fffdf8;border-color:#866c90}.hero{display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:center;gap:42px;padding-block:48px 58px}.eyebrow,.meta,.section-label{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:850}.eyebrow{color:var(--lime);margin:0 0 14px}h1,h2,h3,p{margin-top:0}h1{font-family:Georgia,serif;line-height:.98;letter-spacing:-.055em;font-size:clamp(48px,8vw,102px);margin-bottom:20px;font-weight:700}.hero-line{white-space:nowrap}h1 em{color:var(--lime);font-weight:inherit}h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.045em;line-height:1.04;margin-bottom:9px}.hero p:last-child{color:#e9dce9;max-width:620px;margin-bottom:0;font-size:18px}.receipt{display:block;background:var(--lime);color:var(--ink);padding:18px 21px 25px;transform:rotate(7deg);box-shadow:8px 12px 0 #1f1024;clip-path:polygon(0 0,100% 0,100% 95%,95% 100%,90% 95%,85% 100%,80% 95%,75% 100%,70% 95%,65% 100%,60% 95%,55% 100%,50% 95%,45% 100%,40% 95%,35% 100%,30% 95%,25% 100%,20% 95%,15% 100%,10% 95%,5% 100%,0 95%);font:700 14px/1.4 ui-monospace,monospace}.receipt strong{display:block;font-size:32px;line-height:1;margin:12px 0}.receipt hr{border:0;border-top:1px dashed;margin:12px 0}.receipt span{display:block}.receipt b{display:block;letter-spacing:.17em;font-size:15px;margin-top:11px}
-main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);position:relative;box-shadow:0 6px 0 #eadfd5}.finder-heading{display:flex;align-items:start;justify-content:space-between;gap:16px}.finder-heading p,.sub,.fine{color:var(--muted)}.finder-heading p{margin-bottom:16px}.query{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.query input,input,textarea,select{border:1px solid #aa9caf;border-radius:9px;padding:10px 12px;background:var(--white);color:var(--ink);min-width:0}.query input{padding:13px 14px}.btn,.chip{padding:9px 13px;border:1px solid #a392a6;background:var(--white);color:var(--ink);border-radius:9px;font-weight:750;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:7px;line-height:1.25}.btn:hover,.chip:hover{background:var(--lav)}.primary{background:var(--purple);border-color:var(--purple);color:#fffdf8}.primary:hover{background:#593463}.accent{background:var(--lime);border-color:var(--ink)}.accent:hover{background:#f1f7b0}.chips,.links,.actions{display:flex;flex-wrap:wrap;gap:8px}.chips{margin-top:12px}.chip{font-size:14px;border-radius:100px}.chip[aria-pressed=true],.btn[aria-pressed=true]{background:var(--lav);color:var(--ink);border-color:var(--purple)}.fine{font-size:14px;margin:12px 0 0}.links{margin-top:12px;font-size:14px}.links a{padding:4px 0;margin-right:9px;text-underline-offset:3px}.view{margin-top:34px}.view-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:16px}.view-head p{margin-bottom:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:17px;min-width:0;overflow-wrap:anywhere}.card header{display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:9px}.pill{display:inline-block;font-size:12px;font-weight:850;letter-spacing:.035em;padding:4px 8px;border-radius:6px;background:var(--lav);line-height:1.25}.pill.satire{background:#fbe7c7;color:#583913}.pill.test{background:#e9f1c9}.card .number{margin:0;color:var(--rust);font-size:13px;font-weight:800}.card h3{font-family:Georgia,serif;line-height:1.07;letter-spacing:-.035em;font-size:28px;margin-bottom:8px}.card p:not(.fine){margin-bottom:12px}.card .actions{margin-top:auto;padding-top:12px}.sources{padding:0;margin:4px 0 0;list-style:none;font-size:14px}.sources li{border-top:1px solid var(--line);padding:8px 0}.sources a{font-weight:720;text-underline-offset:3px}.sources span{display:block;color:var(--muted)}blockquote{margin:0 0 9px;padding:8px 12px;border-left:3px solid #9f75aa;background:#f5edf6;font-family:Georgia,serif;font-size:17px}.empty{padding:18px;background:var(--lav);border-radius:12px}.stack{display:grid;gap:12px}.footer{border-top:1px solid var(--line);padding-block:24px 32px;color:var(--muted);font-size:14px}.footer p{margin:0}.footer .footer-disclaimer{margin-top:9px}.section-label{margin-bottom:6px;color:var(--rust)}details{margin:12px 0}summary{cursor:pointer;font-weight:750}dialog{width:min(630px,calc(100vw - 28px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);padding:22px}dialog::backdrop{background:#201327ab}.form-grid{display:grid;gap:11px}.form-grid label,.notefield{display:grid;gap:4px;font-size:14px;font-weight:750}.form-grid textarea,.notefield textarea{resize:vertical;min-height:78px}.notefield{margin-top:8px}.notice{border-left:3px solid #b48a38;padding-left:10px}.shortlist-card{max-width:none}.shortlist-card h3{margin-bottom:4px}#status,#storage-message{margin-bottom:0}#status:empty,#storage-message:empty{display:none}.count{font-variant-numeric:tabular-nums}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.product-thumb{position:relative;display:grid;place-items:center;aspect-ratio:16/8;margin:0 0 13px;background:var(--thumb-bg,#eee4f3);border:1px solid #22192516;border-radius:11px;overflow:hidden}.product-thumb svg,.product-thumb img{display:block;width:100%;height:100%;max-height:180px;object-fit:contain}.product-thumb figcaption{position:absolute;bottom:6px;right:7px;border-radius:4px;padding:2px 5px;background:#fffdf8e8;color:#4b3e50;font-size:11px;line-height:1.2;font-weight:750}.shortlist-card .product-thumb{max-width:300px;width:100%;margin-bottom:12px}.photo-tools{margin:4px 0 0}.photo-tools input{display:block;max-width:100%;margin-top:7px}.photo-tools .actions{margin-top:0}.photo-status:empty{display:none}
-.review-board{margin:34px 0 34px}.rating-checker,.rating-audit{margin-top:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white)}.rating-checker h3{font:700 28px/1.1 Georgia,serif}.rating-checker .form-grid{margin-top:14px}.rating-checker textarea{min-height:118px}.rating-result{margin-top:14px;padding:12px 14px;background:var(--lav);border-radius:8px}.rating-proof{padding:9px 10px;margin:0 0 12px;background:#f3efe8;border-radius:7px;font-size:14px}.rating-proof strong{display:block}.rating-audit ul{list-style:none;padding:0}.rating-audit li{font-size:14px;padding:5px 0;border-bottom:1px solid var(--line)}.review-grid .product-thumb{aspect-ratio:16/10}.product-thumb.sourced{background:#fff;padding:10px 10px 25px}.product-thumb.sourced img{max-height:unset;min-height:0;object-fit:contain}.product-thumb.sourced figcaption{background:#f7f3f6;text-decoration-color:#a593a6}.photo-fallback{color:var(--muted);font-size:14px;text-align:center}.shortlist-card .product-thumb.sourced{aspect-ratio:16/10}.review-card .meta{color:var(--muted)}.review-card blockquote{margin:0 0 12px}.review-card .review-tip{font-size:14px;color:#493c4d}.rating-pill{background:#f7e0d1;color:#5f292a}.pick-id{font-size:12px;letter-spacing:.08em;font-weight:850;color:#655369}.waste-note{margin-top:18px;border-radius:var(--radius);padding:19px 21px;background:#eaf0d4;border:1px solid #d6dfbc}.waste-note h3{font:700 29px/1.08 Georgia,serif;letter-spacing:-.03em;margin-bottom:7px}.waste-note p:last-child{margin-bottom:0}.waste-note a{text-underline-offset:3px}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}button,input,textarea,select{font:inherit}button,a,input,textarea,select{touch-action:manipulation}button{cursor:pointer}a{color:inherit}a:hover{text-decoration-thickness:2px}:focus-visible{outline:3px solid #9d60ac;outline-offset:3px}[hidden]{display:none!important}.wrap{max-width:1200px;margin:auto;padding-inline:28px}.mast{background:var(--purple);color:#fffdf8}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:23px;border-bottom:1px solid #674e70}.brand{display:flex;align-items:center;gap:11px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;font-size:13px;line-height:1.18}.logo{display:grid;place-items:center;background:var(--lime);color:var(--ink);height:41px;width:41px;border-radius:10px;font-size:22px;font-weight:950;transform:rotate(-7deg)}.top-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}.version{color:#e9dce9;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}.top button{background:transparent;color:#fffdf8;border-color:#866c90}.version-btn{font-variant-numeric:tabular-nums;font-size:13px;padding:6px 11px}.version-btn:hover{background:#4a2c53!important}.hero{display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:center;gap:42px;padding-block:48px 58px}.eyebrow,.meta,.section-label{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:850}.eyebrow{color:var(--lime);margin:0 0 14px}h1,h2,h3,p{margin-top:0}h1{font-family:Georgia,serif;line-height:.98;letter-spacing:-.055em;font-size:clamp(48px,8vw,102px);margin-bottom:20px;font-weight:700}.hero-line{white-space:nowrap}h1 em{color:var(--lime);font-weight:inherit}h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.045em;line-height:1.04;margin-bottom:9px}.hero p:last-child{color:#e9dce9;max-width:620px;margin-bottom:0;font-size:18px}.receipt{display:block;background:var(--lime);color:var(--ink);padding:18px 21px 25px;transform:rotate(7deg);box-shadow:8px 12px 0 #1f1024;clip-path:polygon(0 0,100% 0,100% 95%,95% 100%,90% 95%,85% 100%,80% 95%,75% 100%,70% 95%,65% 100%,60% 95%,55% 100%,50% 95%,45% 100%,40% 95%,35% 100%,30% 95%,25% 100%,20% 95%,15% 100%,10% 95%,5% 100%,0 95%);font:700 14px/1.4 ui-monospace,monospace}.receipt strong{display:block;font-size:32px;line-height:1;margin:12px 0}.receipt hr{border:0;border-top:1px dashed;margin:12px 0}.receipt span{display:block}.receipt b{display:block;letter-spacing:.17em;font-size:15px;margin-top:11px}
+main{padding-bottom:50px}.finder{padding:26px;margin-top:34px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);position:relative;box-shadow:0 6px 0 #eadfd5}.finder-heading{display:flex;align-items:start;justify-content:space-between;gap:16px}.finder-heading p,.sub,.fine{color:var(--muted)}.finder-heading p{margin-bottom:16px}.query{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.query input,input,textarea,select{border:1px solid #aa9caf;border-radius:9px;padding:10px 12px;background:var(--white);color:var(--ink);min-width:0}.query input{padding:13px 14px}.btn,.chip{padding:9px 13px;border:1px solid #a392a6;background:var(--white);color:var(--ink);border-radius:9px;font-weight:750;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:7px;line-height:1.25}.btn:hover,.chip:hover{background:var(--lav)}.primary{background:var(--purple);border-color:var(--purple);color:#fffdf8}.primary:hover{background:#593463}.accent{background:var(--lime);border-color:var(--ink)}.accent:hover{background:#f1f7b0}.chips,.links,.actions{display:flex;flex-wrap:wrap;gap:8px}.chips{margin-top:12px}.chip{font-size:14px;border-radius:100px}.chip[aria-pressed=true],.btn[aria-pressed=true]{background:var(--lav);color:var(--ink);border-color:var(--purple)}.fine{font-size:14px;margin:12px 0 0}.links{margin-top:12px;font-size:14px}.links a{padding:4px 0;margin-right:9px;text-underline-offset:3px}.view{margin-top:34px}.view-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:16px}.view-head p{margin-bottom:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:17px;min-width:0;overflow-wrap:anywhere}.card header{display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:9px}.pill{display:inline-block;font-size:12px;font-weight:850;letter-spacing:.035em;padding:4px 8px;border-radius:6px;background:var(--lav);line-height:1.25}.pill.satire{background:#fbe7c7;color:#583913}.pill.test{background:#e9f1c9}.card .number{margin:0;color:var(--rust);font-size:13px;font-weight:800}.card h3{font-family:Georgia,serif;line-height:1.07;letter-spacing:-.035em;font-size:28px;margin-bottom:8px}.card p:not(.fine){margin-bottom:12px}.card .actions{margin-top:auto;padding-top:12px}.sources{padding:0;margin:4px 0 0;list-style:none;font-size:14px}.sources li{border-top:1px solid var(--line);padding:8px 0}.sources a{font-weight:720;text-underline-offset:3px}.sources span{display:block;color:var(--muted)}blockquote{margin:0 0 9px;padding:8px 12px;border-left:3px solid #9f75aa;background:#f5edf6;font-family:Georgia,serif;font-size:17px}.empty{padding:18px;background:var(--lav);border-radius:12px}.stack{display:grid;gap:12px}.footer{border-top:1px solid var(--line);padding-block:24px 32px;color:var(--muted);font-size:14px}.footer p{margin:0}.footer .footer-disclaimer{margin-top:9px}.section-label{margin-bottom:6px;color:var(--rust)}details{margin:12px 0}summary{cursor:pointer;font-weight:750}dialog{width:min(630px,calc(100vw - 28px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);padding:22px}dialog::backdrop{background:#201327ab}.form-grid{display:grid;gap:11px}.form-grid label{display:grid;gap:4px;font-size:14px;font-weight:750}.form-grid textarea{resize:vertical;min-height:78px}.notice{border-left:3px solid #b48a38;padding-left:10px}#status,#storage-message{margin-bottom:0}#status:empty,#storage-message:empty{display:none}.count{font-variant-numeric:tabular-nums}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.product-thumb{position:relative;display:grid;place-items:center;aspect-ratio:16/8;margin:0 0 13px;background:var(--thumb-bg,#eee4f3);border:1px solid #22192516;border-radius:11px;overflow:hidden}.product-thumb svg,.product-thumb img{display:block;width:100%;height:100%;max-height:180px;object-fit:contain}.product-thumb figcaption{position:absolute;bottom:6px;right:7px;border-radius:4px;padding:2px 5px;background:#fffdf8e8;color:#4b3e50;font-size:11px;line-height:1.2;font-weight:750}
+.review-board{margin:34px 0 34px}.rating-checker,.rating-audit{margin-top:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white)}.rating-checker h3{font:700 28px/1.1 Georgia,serif}.rating-checker .form-grid{margin-top:14px}.rating-checker textarea{min-height:118px}.rating-result{margin-top:14px;padding:12px 14px;background:var(--lav);border-radius:8px}.rating-proof{padding:9px 10px;margin:0 0 12px;background:#f3efe8;border-radius:7px;font-size:14px}.rating-proof strong{display:block}.rating-audit ul{list-style:none;padding:0}.rating-audit li{font-size:14px;padding:5px 0;border-bottom:1px solid var(--line)}.review-grid .product-thumb{aspect-ratio:16/10}.product-thumb.sourced{background:#fff;padding:10px 10px 25px}.product-thumb.sourced img{max-height:unset;min-height:0;object-fit:contain}.product-thumb.sourced figcaption{background:#f7f3f6;text-decoration-color:#a593a6}.photo-fallback{color:var(--muted);font-size:14px;text-align:center}.review-card .meta{color:var(--muted)}.review-card blockquote{margin:0 0 12px}.review-card .review-tip{font-size:14px;color:#493c4d}.rating-pill{background:#f7e0d1;color:#5f292a}.pick-id{font-size:12px;letter-spacing:.08em;font-weight:850;color:#655369}.waste-note{margin-top:18px;border-radius:var(--radius);padding:19px 21px;background:#eaf0d4;border:1px solid #d6dfbc}.waste-note h3{font:700 29px/1.08 Georgia,serif;letter-spacing:-.03em;margin-bottom:7px}.waste-note p:last-child{margin-bottom:0}.waste-note a{text-underline-offset:3px}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:minmax(0,1fr) 195px;gap:28px}.receipt strong{font-size:27px}}
 @media(min-width:566px) and (max-width:670px){.hero h1{font-size:clamp(41px,7.3vw,49px)}}
 @media(max-width:360px){.hero h1{font-size:clamp(34px,13.15vw,48px)}}
 @media(max-width:565px){.wrap{padding-inline:15px}.top{padding-block:14px}.hero{display:block;padding-block:33px 40px}.receipt{display:none}.finder{padding:16px}.finder-heading,.view-head{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.query{grid-template-columns:1fr}.btn,.chip{min-height:40px}.view-head{gap:10px}}
+.checked{display:block;margin-top:3px;font-weight:600}.checked.missing{color:var(--rust)}.near-shelf{margin-top:26px}.near-shelf h3{font:700 26px/1.1 Georgia,serif;margin-bottom:6px}.pill.watch{background:#fbe7c7;color:#583913}.entry-box{margin-top:12px}.entry-box textarea{width:100%;min-height:210px;font:13px/1.4 ui-monospace,monospace}.whatsnew h3{margin:16px 0 4px}.whatsnew ul{margin:0 0 6px;padding-left:20px}.rule-note{font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
 <header class="mast"><div class="wrap">
-  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><!-- Update this version with each published change. --><span class="version" aria-label="App version 0.1.12">v0.1.12</span><button id="nav" hidden class="btn" type="button">Book shortlist <span class="count" id="count">0</span></button></div></div>
-  <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money<br><span class="hero-line">Wasting <em>Expert</em></span></h1><p>Your 1 STAR reviews of the WORST products to hit the market!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
+  <div class="top"><div class="brand"><span class="logo" aria-hidden="true">£</span><span>Money Wasting<br>Expert</span></div><div class="top-actions"><button id="version" class="btn version-btn" type="button" aria-haspopup="dialog" aria-label="What’s new in this version"></button></div></div>
+  <div class="hero"><div><p class="eyebrow">The regrettable purchase files</p><h1>Money<br><span class="hero-line">Wasting <em>Expert</em></span></h1><p>Where more buyers gave 1–2 stars than 4–5. Check before you buy!</p></div><div class="receipt" aria-hidden="true"><span>MWE · CUSTOMER COPY</span><hr><span>HYPE .......... 100%</span><span>REGRET .... PENDING</span><hr><strong>£ OUCH.</strong><b>KEEP THIS RECEIPT</b></div></div>
 </div></header>
 <main class="wrap">
 <section class="view review-board" id="top-reviews" aria-labelledby="top-reviews-title">
-  <div class="view-head"><div><p class="section-label">The one- and two-star shelf</p><h2 id="top-reviews-title">More bad ratings than good</h2><p class="sub">Only listings with at least 50 ratings where 1–2 stars outnumber 4–5 stars. Three stars are neutral. We show the retailer’s figures, not a verdict on every item sold.</p></div><label class="sr-only" for="review-filter">Filter review quotes by star rating</label><select id="review-filter"><option value="all">All qualifying picks</option><option value="1">1-star quotes</option><option value="2">2-star quotes</option></select></div>
+  <div class="view-head"><div><p class="section-label">The one- and two-star shelf</p><h2 id="top-reviews-title">More bad ratings than good</h2><p class="sub">Only listings with at least 50 ratings where 1–2 stars beat 4–5 stars by at least a tenth of all ratings. Three stars are neutral. We show the retailer’s figures, not a verdict on every item sold.</p></div><label class="sr-only" for="review-filter">Filter review quotes by star rating</label><select id="review-filter" hidden><option value="all">All qualifying picks</option><option value="1">1-star quotes</option><option value="2">2-star quotes</option></select></div>
   <div id="review-cards" class="grid review-grid"></div>
-  <details class="rating-audit"><summary>What happened to the original ten?</summary><p class="fine">None passed on the retailer snapshots we checked. Some were well rated and others didn’t have enough ratings. These listings are no longer featured.</p><ul id="audit-list"></ul></details>
+  <div id="near-shelf" class="near-shelf" hidden><p class="section-label">On the watch list</p><h3>Not quite there yet</h3><p class="sub">Low ratings lead, but there aren’t enough ratings or the gap is too thin to feature. Check back before you buy.</p><div id="near-cards" class="grid review-grid" style="margin-top:14px"></div></div>
+  <details class="rating-audit"><summary>What didn’t make the cut</summary><p class="fine">These listings were checked against the ratings test and don’t pass. Some were well rated and others didn’t have enough ratings.</p><ul id="audit-list"></ul></details>
   <section class="rating-checker" id="rating-checker" aria-labelledby="rating-title">
     <p class="section-label">Check a product</p><h3 id="rating-title">Does it pass the ratings test?</h3>
     <p>Find the exact listing, then paste its five star breakdowns and total rating count. This checks the numbers you paste. It doesn’t scan retailers live or publish your result.</p>
@@ -39,249 +41,92 @@ main{padding-bottom:50px}.finder{padding:26px;margin-top:-7px;background:var(--w
       <div class="actions"><button class="btn primary" type="submit">Check ratings</button></div>
     </form>
     <div id="rating-result" class="rating-result" role="status" hidden></div>
+    <details id="entry-box" class="entry-box" hidden><summary id="entry-summary">Add it to the site</summary><p class="fine" id="entry-help"></p><textarea id="entry-json" readonly aria-label="Data entry to paste into data/products.js"></textarea><div class="actions" style="margin-top:8px"><button class="btn" id="entry-copy" type="button">Copy entry</button><span class="fine" id="entry-copied" role="status"></span></div></details>
   </section>
   <aside class="waste-note" aria-labelledby="waste-title"><p class="section-label">The serious bit</p><h3 id="waste-title">You buy cheap, you buy twice!</h3><p>Before you buy, ask whether something you already own will do the job. Borrow a gadget you’ll only use once, and check for repair options before replacing it. If an electrical item is beyond repair, <a href="https://www.recyclenow.com/recycle-an-item/electrical-items" target="_blank" rel="noopener noreferrer">find out where to recycle it in the UK</a>.</p></aside>
-</section>
-<section class="finder" id="finder" aria-labelledby="finder-title">
-  <div class="finder-heading"><div><p class="section-label">Research desk</p><h2 id="finder-title">Hunt for bad buys</h2><p>Search by product or topic. Start with a model name for more useful comments.</p></div><button class="btn" id="add" hidden type="button">+ Add a lead</button></div>
-  <form id="search" class="query"><label for="q" class="sr-only">Product or topic</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try Rabbit R1, robot vacuum or smart toaster" required><button class="btn primary" id="submit-search">Find discussion leads</button></form>
-  <div class="chips" id="chips"><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="Juicero">Kitchen gadgets</button><button type="button" class="chip" data-q="Hutzler banana slicer">Novelty buys</button></div>
-  <p class="fine">Optional research tool. Hacker News results are discussion leads, not buyer reviews. Use the UK review links for retailer and independent sources.</p>
-  <p id="storage-message" class="fine notice" role="status"></p>
-</section>
-<section class="view" id="results" aria-labelledby="results-title" hidden>
-  <div class="view-head"><div><p class="section-label">Live discovery</p><h2 id="results-title" tabindex="-1">Search results</h2></div><button id="close-results" type="button" class="btn">Clear search</button></div>
-  <div id="external" class="links" aria-label="Search other sources"></div><p id="status" class="fine" role="status"></p><div id="hits" class="grid" style="margin-top:14px"></div>
 </section>
 <section class="view" id="archive" aria-labelledby="archive-title">
   <div class="view-head"><div><p class="section-label">The evidence drawer</p><h2 id="archive-title">The archive</h2><p class="sub">A small, hand-picked collection of review leads, past flops and deliberate parody.</p></div><label class="sr-only" for="filter">Filter starter case files</label><select id="filter"><option value="all">All case files</option><option>Product tests</option><option>Launch reviews</option><option>Discontinued</option><option>Review parody</option></select></div>
   <div id="cases" class="grid"></div>
 </section>
-<section class="view" id="shortlist" aria-labelledby="short-title" hidden>
-  <div class="view-head"><div><p class="section-label">Your manuscript research</p><h2 id="short-title" tabindex="-1">Book shortlist</h2><p class="sub">Saved in this browser. Download a copy to take it with you.</p></div><div class="actions"><button class="btn" id="export" type="button">Download book notes</button><button class="btn" id="back" type="button">Back to research</button></div></div>
-  <div id="saved" class="stack"></div>
+<section class="finder" id="finder" aria-labelledby="finder-title">
+  <div class="finder-heading"><div><p class="section-label">Research desk</p><h2 id="finder-title">Hunt for bad buys</h2><p>Search by product or topic. Start with a model name for more useful comments.</p></div></div>
+  <form id="search" class="query"><label for="q" class="sr-only">Product or topic</label><input id="q" name="q" type="search" maxlength="100" placeholder="Try Rabbit R1, robot vacuum or smart toaster" required><button class="btn primary" id="submit-search">Find discussion leads</button></form>
+  <div class="chips" id="chips"><button type="button" class="chip" data-q="Humane AI Pin">AI gadgets</button><button type="button" class="chip" data-q="robot vacuum">Robot vacuums</button><button type="button" class="chip" data-q="Juicero">Kitchen gadgets</button><button type="button" class="chip" data-q="Hutzler banana slicer">Novelty buys</button></div>
+  <p class="fine">Hacker News results are discussion leads, not buyer reviews. Use the UK review links for retailer and independent sources.</p>
+</section>
+<section class="view" id="results" aria-labelledby="results-title" hidden>
+  <div class="view-head"><div><p class="section-label">Live discovery</p><h2 id="results-title" tabindex="-1">Search results</h2></div><button id="close-results" type="button" class="btn">Clear search</button></div>
+  <div id="external" class="links" aria-label="Search other sources"></div><p id="status" class="fine" role="status"></p><div id="hits" class="grid" style="margin-top:14px"></div>
 </section>
 </main>
-<footer class="footer"><div class="wrap"><p>Independent satire and research. A bad review is a lead, not a verdict. Check the exact model, date and wider reception before putting it in print.</p><p class="footer-disclaimer">Money Wasting Expert is just for fun (although we should be careful of what we throw away) and not associated in any way with a well-known financial advisory service you might have heard of... or seen on the telly!</p></div></footer>
-<dialog id="entry" aria-labelledby="entry-title">
- <form id="lead-form" class="form-grid">
-  <h2 id="entry-title">Add a lead</h2>
-  <label>Product or exact model<input name="name" required maxlength="140"></label>
-  <label>Original source link<input name="url" required type="url" maxlength="900" placeholder="https://…"></label>
-  <label>Source type<select name="kind"><option>Customer review</option><option>Editorial review</option><option>Discussion</option><option>Parody</option><option>Other</option></select></label>
-  <label>What did they say? <span class="sub">A short paraphrase in your own words works best.</span><textarea name="summary" maxlength="600"></textarea></label>
-  <p id="entry-error" class="fine notice" role="status" hidden></p>
-  <div class="actions"><button class="btn primary" type="submit">Save to shortlist</button><button class="btn" id="cancel-entry" type="button">Cancel</button></div>
- </form>
-</dialog>
+<footer class="footer"><div class="wrap"><p>Independent satire and research. A bad review is a lead, not a verdict. Check the exact model, date and wider reception before you buy or put it in print.</p><p class="footer-disclaimer">Money Wasting Expert is just for fun (although we should be careful of what we throw away) and not associated in any way with a well-known financial advisory service you might have heard of... or seen on the telly!</p></div></footer>
+<dialog id="whatsnew" class="whatsnew" aria-labelledby="whatsnew-title"><h2 id="whatsnew-title">What’s new</h2><div id="whatsnew-body"></div><div class="actions" style="margin-top:14px"><button class="btn primary" id="whatsnew-close" type="button">Close</button></div></dialog>
+<script src="data/products.js"></script>
+<script src="js/rating.js"></script>
 <script>
 'use strict';
-const cases = [
- {id:'lefant',name:'Lefant M210',category:'Product tests',badge:'Lab test',tone:'test',label:'Robot vacuum · model-specific test',summary:'Consumer Reports placed the M210 among its worst tested vacuums and singled out its cleaning performance. Check the exact model before comparing it with other Lefant vacuums.',angle:'A robot that can find its way around the furniture still has to find the dirt.',sources:[['Consumer Reports','Lab-test roundup','https://www.consumerreports.org/appliances/vacuum-cleaners/worst-vacuums-we-tested-and-what-to-buy-instead-a4744433209/']]},
- {id:'rabbit',name:'Rabbit R1',category:'Launch reviews',badge:'Launch review',label:'Pocket AI assistant · 2024 launch',summary:'The Verge’s launch test found the assistant often got things wrong and lacked everyday smartphone features. The company later acknowledged problems with the early experience.',angle:'A bright orange answer to the question nobody asked their phone.',sources:[['The Verge','Hands-on video review','https://www.youtube.com/watch?v=DVJL6LXgOE4'],['WIRED','Independent hands-on review','https://www.wired.com/review/rabbit-r1/'],['The Verge','Later company response','https://www.theverge.com/news/671955/jony-ive-rabbit-r1-humane-ai-pin']]},
- {id:'humane',name:'Humane Ai Pin',category:'Launch reviews',badge:'Launch review',label:'Wearable AI · 2024 launch',summary:'WIRED scored the launch model 4/10, citing limited features, slow answers and a palm projector that was hard to see in daylight.',angle:'Finally, a screen you can take outside but can’t read outside.',sources:[['WIRED','Hands-on review, 4/10','https://www.wired.com/review/humane-ai-pin/'],['TechRadar','Round-up of launch reviews','https://www.techradar.com/computing/artificial-intelligence/humane-ai-pin-review-roundup']]},
- {id:'juicero',name:'Juicero Press',category:'Discontinued',badge:'Archive flop',label:'Connected juice press · discontinued',summary:'Ars Technica reported the company shut down after scrutiny over a press whose proprietary juice bags could also be squeezed by hand.',angle:'The most inconvenient way to replace your hands.',sources:[['Ars Technica','Shutdown and product reporting','https://arstechnica.com/information-technology/2017/09/juicero-maker-of-proprietary-juice-bag-presser-is-shutting-down/'],['Ars Technica','Hardware teardown coverage','https://arstechnica.com/information-technology/2017/04/juicero-teardown-hints-at-a-very-expensively-built-product/']]},
- {id:'keurig',name:'Keurig Kold',category:'Discontinued',badge:'Archive flop',label:'Pod-based fizzy drinks · discontinued',summary:'WIRED scored the countertop soda machine 4/10. The brewer used proprietary pods, and Engadget reported the product was discontinued in under a year.',angle:'What if a can of pop needed its own appliance?',sources:[['WIRED','Hands-on review, 4/10','https://www.wired.com/2015/10/review-keurig-kold/'],['Engadget','Discontinuation reporting','https://www.engadget.com/2016-06-07-keurig-kold-goes-flat.html']]},
- {id:'hutzler',name:'Hutzler 571 Banana Slicer',category:'Review parody',badge:'Parody, not proof',tone:'satire',label:'Novelty kitchen gadget · spoof reviews',summary:'Shoppers made an online comedy routine out of a utensil for slicing bananas. The joke reviews aren’t evidence that it cuts badly.',angle:'The product that outsourced its marketing to comedians in the reviews section.',sources:[['Laughing Squid','Examples of satirical customer posts','https://laughingsquid.com/funny-amazon-reviews-for-the-hutzler-571-banana-slicer/'],['Know Your Meme','Parody context','https://knowyourmeme.com/memes/banana-slicer-reviews']]}
-];
-const productPhotos = {
-  "review-frying-pan":["https://media.4rgos.it/i/Argos/3084841_R_Z001A?w=480","Argos","https://www.argos.co.uk/product/3084841"],
-  "review-cookworks": [
-    "https://media.4rgos.it/i/Argos/9339325_R_Z003A?w=480",
-    "Argos",
-    "https://www.argos.co.uk/product/9339325"
-  ],
-  "review-breville": [
-    "https://media.4rgos.it/s/Argos/7839425_R_SET?%24Main768%24=&h=480&w=480",
-    "Argos",
-    "https://www.argos.co.uk/product/7839425"
-  ],
-  "review-shark": [
-    "https://assets.sharkninja.com/image/upload/f_auto/q_auto/SharkNinja-EU/RV2900XEUK_01.jpg",
-    "Shark",
-    "https://www.sharkninja.co.uk/shark-thermacharged-powerdetect-wet-dry-robot-vacuum/RV2900XEUK.html"
-  ],
-  "review-giles": [
-    "https://media.4rgos.it/i/Argos/2997788_R_Z010A?w=480",
-    "Argos",
-    "https://www.argos.co.uk/product/2997788"
-  ],
-  "review-salter": [
-    "https://media.4rgos.it/s/Argos/3030675_R_SET?w=480",
-    "Argos",
-    "https://www.argos.co.uk/product/3030675"
-  ],
-  "review-tefal": [
-    "https://media.currys.biz/i/currysprod/10226559?w=480",
-    "Currys",
-    "https://www.currys.co.uk/products/tefal-includeo-tt533840-2slice-toaster-black-10226559.html"
-  ],
-  "review-fellowes": [
-    "https://cdn.images.fecom-media.com/FE00059131/images/41711016_q7i3RDsUE.jpg?q=75&w=480",
-    "Findel International",
-    "https://www.findel-international.com/product/fe00059131"
-  ],
-  "review-jml": [
-    "https://media.very.co.uk/i/very/NF062_SQ1_0000000099_N-A_SLf1?%24pdp_300x400_x2%24=&fmt=jpg",
-    "Very",
-    "https://www.very.co.uk/jml-hands-free-can-opener-electric-tin-opener/639559907.prd"
-  ],
-  "review-tower": [
-    "https://www.robertdyas.co.uk/media/catalog/product/t/1/t17102_1.jpg?height=480&width=480",
-    "Robert Dyas",
-    "https://www.robertdyas.co.uk/tower-vortx-vizion-11l-dual-air-fryer"
-  ],
-  "review-bush": [
-    "https://media.4rgos.it/s/Argos/7271090_R_SET?%24Main768%24=&h=480&w=480",
-    "Argos",
-    "https://www.argos.co.uk/product/7271090"
-  ],
-  "lefant": [
-    "https://img06.weeecdn.com/item/image/013/654/187B08FEFFED2474.jpeg",
-    "Weee!",
-    "https://www.sayweee.com/en/product/Lefant-Robot-Vacuum-Cleaner-Strong-Suction/2833771"
-  ],
-  "rabbit": [
-    "https://www.rabbit.tech/_next/image?q=75&url=%2Fnewsroom%2Fnewsroom_assets_introducingR1.png&w=1920",
-    "Rabbit newsroom",
-    "https://www.rabbit.tech/newsroom"
-  ],
-  "humane": [
-    "https://www.red-dot.org/fileadmin/user_upload/61-09589-2024PD.1119158_CO.jpg",
-    "Red Dot",
-    "https://www.red-dot.org/project/ai-pin-72307"
-  ],
-  "juicero": [
-    "https://www.domusweb.it/content/dam/domusweb/en/news/2016/07/01/yves_behar_juicero/domus_10_Juicero.jpg.foto.rmedium.jpg",
-    "Domus",
-    "https://www.domusweb.it/en/news/2016/07/01/yves_behar_juicero.html"
-  ],
-  "keurig": [
-    "https://media.wired.com/photos/5955bd2e3ff99d6b3a1d159c/master/w_480%2Cc_limit/keurigkold1.jpg",
-    "WIRED",
-    "https://www.wired.com/2015/09/keurig-kold-soda-machine/"
-  ],
-  "hutzler": [
-    "https://cdn11.bigcommerce.com/s-jtxa13/images/stencil/640w/products/2106/4981/571_150dpi_8x5__20698.1752154237.jpg?c=2",
-    "Hutzler",
-    "https://hutzlerco.com/hutzler-banana-slicer-oanz/"
-  ]
-};
-function safePhoto(s){return typeof s==='string'&&s.length<200000&&/^data:image\/(?:jpeg|webp);base64,[A-Za-z0-9+/]+=*$/.test(s)}
-function productThumb(x){
- const alt=esc(x.name);
- if(safePhoto(x.image))return '<figure class="product-thumb attached"><img loading="lazy" decoding="async" alt="Attached photo for '+alt+'" src="'+esc(x.image)+'"><figcaption>Your photo</figcaption></figure>';
- const photo=Object.hasOwn(productPhotos,x.id)?productPhotos[x.id]:null;
- if(!photo)return '';
- const [src,credit,source]=photo;
- return '<figure class="product-thumb sourced"><img data-product-photo="'+esc(x.id)+'" '+(x.id.startsWith('review-')?'':'loading="lazy" ')+'decoding="async" referrerpolicy="no-referrer" alt="'+alt+'" src="'+esc(src)+'"><span class="photo-fallback" hidden>Product photo unavailable</span><figcaption>Photo · '+link(source,credit)+'</figcaption></figure>';
-}
-document.addEventListener('error',e=>{
- const img=e.target;
- if(!img.matches?.('[data-product-photo]'))return;
- img.hidden=true;img.nextElementSibling.hidden=false;
-},true);
-function photoControls(i,x){return '<details class="photo-tools"><summary>'+(safePhoto(x.image)?'Change or remove your photo':'Attach your own photo')+'</summary><label class="notefield">Photo from this device<input type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" data-photo="'+i+'"></label><p class="fine">Only saved in this browser. Photos aren’t included in the book notes download.</p><p class="fine photo-status" data-photo-status role="status"></p>'+(safePhoto(x.image)?'<div class="actions"><button class="btn" type="button" data-remove-photo="'+i+'">Remove photo</button></div>':'')+'</details>'}
-const featuredRows = [
- ['cookworks','Cookworks 2 Portion Sandwich Toaster',2,'5 September 2026','…leaving molten cheese goo on the most difficult-to-clean parts.','Check the plate size against the bread you actually buy. If you already have a frying pan, try making a toastie in it first.','9339325','sandwich'],
- ['breville','Breville Prima Latte OneTouch Espresso Machine',2,'18 June 2026','…my lattes have no substance and could fit in an eggcup.','Before upgrading for lattes, check how much milk it delivers and how often the frother needs cleaning.','7839425','coffee'],
- ['shark','Shark ThermaCharged PowerDetect Robot Vacuum',2,'25 July 2026','…it constantly gets stuck in between grout lines, pausing entirely','Look for reviews from people with floors and thresholds like yours.','7939040','robot','Originally posted on Shark’s site'],
- ['giles','Giles & Posner Mini Popcorn Maker',1,'8 July 2026','You get about a 50% yield from the popcorn at most.','Try the saucepan you already own before buying a machine that only makes popcorn.','2997788','popcorn'],
- ['salter','Salter Kuro XL 3-in-1 Snack Maker',1,'7 April 2026','Left the waffles in for 20 mins (instructions say 5-6 mins) and they were still not cooked.','If you only want waffles once in a while, see if you can borrow a maker first.','3030675','sandwich'],
- ['tefal','Tefal Includeo TT533840 2 Slice Toaster',1,'15 June 2026','The toaster does not take a standard slice of bread.','Check slot length and depth as well as width. Wide slots don’t necessarily mean your slices will fit.','7669413','toaster','Originally posted on Tefal’s site'],
- ['fellowes','Fellowes PowerShred LX25',1,'20 August 2026','Jammed up after two sheets of paper.','For occasional shredding, check whether a local secure shredding service would do the job.','3378708','shredder'],
- ['jml','JML Hands Free Automatic Can Opener',1,'12 April 2026','…does not work as it should and not with all cans','Check that it fits the tins you use and that the controls suit your hands.','7671755','opener'],
- ['tower','Tower Vortx Vizion T17102 Air Fryer Oven',2,'22 September 2026','…once one basket is open the other wont work either','Check whether replacement baskets are available and read longer-term reviews as well as first impressions.','1231311','fryer'],
- ['bush','Bush Chrome Desk Fan, 12 Inch',2,'17 July 2026','It is noisier than my other fan ( not a Bush), although it does its job effectively.','If it’s for a bedroom or desk, check noise at the lowest setting before replacing a working fan.','7271090','fan']
-];
-const priorFeatured=featuredRows.map(([id,name,stars,date,snippet,tip,sku,kind,origin],i)=>({id:'review-'+id,name,badge:stars+'-star customer review',stars,date,snippet,tip,kind,origin,pick:i+1,productUrl:'https://www.argos.co.uk/product/'+sku,summary:'Before you buy — '+tip,sources:[['Read the reviews on Argos',date+(origin?' · '+origin:''),'https://www.argos.co.uk/product/'+sku+'#reviews']]}));
-// Captured retailer listings, not live feeds. Counts are stored in 1-star through 5-star order.
-const auditedRatings={
- cookworks:[141,55,135,284,841],breville:[0,1,3,3,19],shark:[2,2,1,1,13],
- giles:[7,0,1,1,6],salter:[1,0,2,4,9],tefal:[6,1,8,16,52],
- fellowes:[14,0,8,25,73],jml:[12,3,6,14,37],tower:[15,11,27,78,426],bush:[16,8,19,58,210]
-};
-const featured=[{
- id:'review-frying-pan',name:'Home Essentials 30cm Non Stick Carbon Steel Frying Pan',
- ratingData:{whole:[37,4,7,5,26],mode:'count',total:79},stars:1,
- snippet:'…as soon as it started to warm up the centre popped out and became convex',
- tip:'Check for repeated reports of sticking or warping before replacing a pan that still works.',
- reviewNote:'Sticking came up in multiple low-star reviews. Some other customers reported that the pan worked well for them.',
- productUrl:'https://www.argos.co.uk/product/3084841',
- sources:[['Argos rating breakdown and customer reviews','Quoted review · 18 May 2026','https://www.argos.co.uk/product/3084841/#reviews']]
-}];
-const sum=values=>values.reduce((a,b)=>a+b,0);
-function evaluateRating(data){
- if(!data || !['count','percent'].includes(data.mode) || !Array.isArray(data.whole) || data.whole.length!==5 || data.whole.some(n=>!Number.isFinite(n)||n<0) || !Number.isSafeInteger(data.total) || data.total<1)return {valid:false};
- const values=data.whole;
- if(data.mode==='count' && (values.some(n=>!Number.isSafeInteger(n)) || sum(values)!==data.total))return {valid:false};
- if(data.mode==='percent' && (values.some(n=>n>100) || Math.abs(sum(values)-100)>2.51))return {valid:false};
- const bad=values[0]+values[1],neutral=values[2],good=values[3]+values[4];
- const small=data.total<50,margin=bad-good;
- const state=small?'small':data.mode==='percent' && Math.abs(margin)<=2?'uncertain':margin>0?'pass':'no';
- return {valid:true,state,bad,neutral,good,total:data.total,mode:data.mode};
-}
-function parseRatingText(input){
- const src=input.replace(/\u00a0/g,' ').trim();
- const values=Array(5).fill(null), totals=new Set(), modes=new Set();
- for(const m of src.matchAll(/(?:^|\s)([1-5])[ \t]+stars?\b\s*[:–—-]?\s*([\d,]+(?:\.\d+)?)[ \t]*(%|of[ \t]+([\d,]+)\b|(?=\r?\n|$))/gi)){
-   const star=Number(m[1])-1,val=Number(m[2].replaceAll(',','')),mode=m[3]==='%'?'percent':'count';
-   if(values[star]!==null && values[star]!==val)return null;
-   values[star]=val;modes.add(mode);
-   if(m[4])totals.add(Number(m[4].replaceAll(',','')));
- }
- if(values.includes(null)||modes.size!==1)return null;
- for(const m of src.matchAll(/^\s*([\d,]+)\s+(?:global\s+|star\s+)?(?:ratings|reviews)\s*$/gim))totals.add(Number(m[1].replaceAll(',','')));
- if(totals.size>1)return null;
- const mode=[...modes][0],total=totals.size?[...totals][0]:(mode==='count'?sum(values):null);
- return {whole:values,mode,total};
-}
-function displayedRating(r){
- const unit=r.mode==='percent'?'%':'';
- const fmt=n=>Number(n.toFixed(2)).toLocaleString('en-GB')+unit;
- return fmt(r.bad)+' low (1–2★) · '+fmt(r.good)+' high (4–5★) · '+fmt(r.neutral)+' neutral (3★)';
-}
-const $ = id => document.getElementById(id);
-const key = 'mwe-shortlist-v1';
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function webUrl(s){try{const u=new URL(s);return ['http:','https:'].includes(u.protocol) && !u.username && !u.password ? u.href : ''}catch{return ''}}
-function link(url,label){const safe=webUrl(url);return safe ? '<a href="'+esc(safe)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+'</a>' : esc(label)}
-function plain(html){const t=document.createElement('template');t.innerHTML=String(html ?? '').replace(/<(?:p|br)\b[^>]*>/gi,' ');return (t.content.textContent || '').replace(/\s+/g,' ').trim()}
+const {evaluateRating,parseRatingText,displayedRating,explain,isNearMiss,sum}=MWERating;
+const {cases,photos,featured,nearMisses,audit,whatsNew}=MWE_DATA;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function webUrl(s){try{const u=new URL(s);return ['http:','https:'].includes(u.protocol)&&!u.username&&!u.password?u.href:''}catch{return ''}}
+function link(url,label){const safe=webUrl(url);return safe?'<a href="'+esc(safe)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+'</a>':esc(label)}
+function plain(html){const t=document.createElement('template');t.innerHTML=String(html??'').replace(/<(?:p|br)\b[^>]*>/gi,' ');return (t.content.textContent||'').replace(/\s+/g,' ').trim()}
 function clip(s,n){if(Array.from(s).length<=n)return s;const part=Array.from(s).slice(0,n).join('');return part.replace(/\s+\S*$/,'')+'…'}
-function excerpt(s,q){const terms=q.toLowerCase().split(/\s+/).filter(x=>x.length>2);const low=s.toLowerCase();const places=terms.map(x=>low.indexOf(x)).filter(x=>x>=0);const at=places.length?Math.min(...places):0;const start=Math.max(0,at-50);return (start?'…':'')+clip(s.slice(start).replace(/^\S+\s+/, m=>start? '':m),180)}
-let saved=[];
-try {const raw=JSON.parse(localStorage.getItem(key)||'[]');saved=Array.isArray(raw)?raw.filter(x=>x && typeof x.id==='string' && typeof x.name==='string' && Array.isArray(x.sources)):[]}catch{$('storage-message').textContent='This browser could not read your saved shortlist.'}
-let findings=[], controller=null, activeTerm='', side='research';
-function persist(){try{localStorage.setItem(key,JSON.stringify(saved));$('storage-message').textContent='';return true}catch{$('storage-message').textContent='This browser couldn’t save changes permanently. Download your book notes before closing the page.';return false}}
+function excerpt(s,q){const terms=q.toLowerCase().split(/\s+/).filter(x=>x.length>2);const low=s.toLowerCase();const places=terms.map(x=>low.indexOf(x)).filter(x=>x>=0);const at=places.length?Math.min(...places):0;const start=Math.max(0,at-50);return (start?'…':'')+clip(s.slice(start).replace(/^\S+\s+/,m=>start?'':m),180)}
+function niceDate(iso){const d=/^\d{4}-\d\d-\d\d$/.test(iso||'')?new Date(iso+'T00:00:00Z'):null;return d&&!isNaN(d)?d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}):''}
 function listSources(sources){return '<ul class="sources">'+sources.map(([label,detail,url])=>'<li>'+link(url,label)+'<span>'+esc(detail)+'</span></li>').join('')+'</ul>'}
-function isSaved(id){return saved.some(x=>x.id===id)}
-// The book shortlist is paused. Keep its existing browser data for a future release.
-const shortlistEnabled=false;
-function saveButton(item){if(!shortlistEnabled)return '';const on=isSaved(item.id);return '<button type="button" class="btn '+(on?'':'accent')+'" data-save="'+esc(item.id)+'" aria-pressed="'+on+'">'+(on?'Saved · remove':'+ Shortlist')+'</button>'}
-function caseCard(x){return '<article class="card">'+productThumb(x)+'<header><span class="pill '+esc(x.tone||'')+'">'+esc(x.badge)+'</span></header><p class="number">'+esc(x.label)+'</p><h3>'+esc(x.name)+'</h3><p>'+esc(x.summary)+'</p><details><summary>MWE aside (original, not a review)</summary><div>'+esc(x.angle)+'</div></details>'+listSources(x.sources)+'<div class="actions">'+saveButton(x)+' <button type="button" class="btn" data-search="'+esc(x.name)+'">Find comments</button></div></article>'}
+
+/* Version badge and What's new */
+const VERSION=whatsNew[0].version;
+$('version').textContent=VERSION;
+$('whatsnew-body').innerHTML=whatsNew.map(w=>'<h3>'+esc(w.version)+' · '+esc(w.title)+'</h3><ul>'+w.items.map(i=>'<li>'+esc(i)+'</li>').join('')+'</ul>').join('');
+$('version').addEventListener('click',()=>$('whatsnew').showModal());
+$('whatsnew-close').addEventListener('click',()=>$('whatsnew').close());
+
+/* Product photos: retailer-hosted, with a text fallback if the image won't load. */
+function productThumb(x){
+ const photo=Object.hasOwn(photos,x.id)?photos[x.id]:null;if(!photo)return '';
+ const [src,credit,source]=photo;
+ return '<figure class="product-thumb sourced"><img data-product-photo="'+esc(x.id)+'" '+(x.id.startsWith('review-')?'':'loading="lazy" ')+'decoding="async" referrerpolicy="no-referrer" alt="'+esc(x.name)+'" src="'+esc(src)+'"><span class="photo-fallback" hidden>Product photo unavailable</span><figcaption>Photo · '+link(source,credit)+'</figcaption></figure>';
+}
+document.addEventListener('error',e=>{const img=e.target;if(!img.matches?.('[data-product-photo]'))return;img.hidden=true;img.nextElementSibling.hidden=false},true);
+
+/* The one- and two-star shelf */
 function viewProduct(x){const url=webUrl(x.productUrl);return url?'<a class="btn accent" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="View product: '+esc(x.name)+'">View product</a>':''}
+function checkedLine(x){const d=niceDate(x.checked);return d?'<span class="checked">Counts checked '+esc(d)+'</span>':'<span class="checked missing">Check date not recorded. Recheck before citing.</span>'}
+function ratingProof(x,r,note){return '<p class="rating-proof"><strong>'+r.total.toLocaleString('en-GB')+' ratings on '+esc(x.source||'the retailer')+' · snapshot</strong>'+esc(displayedRating(r))+(note?'<span class="checked">'+esc(note)+'</span>':'')+checkedLine(x)+'</p>'}
+function reviewCard(x,r,watch){
+ const quote=x.snippet?'<blockquote>“'+esc(x.snippet)+'”</blockquote>':'';
+ return '<article class="card review-card">'+productThumb(x)+'<header><span class="pill '+(watch?'watch':'rating-pill')+'">'+(watch?'Watch list':x.stars+'-star customer quote')+'</span></header><h3>'+esc(x.name)+'</h3>'+ratingProof(x,r,watch?'Not featured: '+explain(r)+'.':'')+quote+(x.reviewNote?'<p class="review-tip">'+esc(x.reviewNote)+'</p>':'')+(x.tip?'<p class="review-tip"><strong>Before you buy</strong> — '+esc(x.tip)+'</p>':'')+listSources(x.sources||[])+'<div class="actions">'+viewProduct(x)+'</div></article>';
+}
 function renderFeatured(){
  const value=$('review-filter').value;
- const rows=featured.map(x=>({x,r:evaluateRating(x.ratingData)})).filter(({x,r})=>r.valid&&r.state==='pass'&&r.mode==='count'&&(value==='all'||x.stars===Number(value)));
- $('review-cards').innerHTML=rows.length?rows.map(({x,r})=>'<article class="card review-card">'+productThumb(x)+'<header><span class="pill rating-pill">'+x.stars+'-star customer quote</span></header><h3>'+esc(x.name)+'</h3><p class="rating-proof"><strong>'+r.total+' ratings on Argos · snapshot</strong>'+esc(displayedRating(r))+'</p><blockquote>“'+esc(x.snippet)+'”</blockquote><p class="review-tip">'+esc(x.reviewNote)+'</p><p class="review-tip"><strong>Before you buy</strong> — '+esc(x.tip)+'</p>'+listSources(x.sources)+'<div class="actions">'+viewProduct(x)+'</div></article>').join(''):'<p class="empty">No eligible listings with this quote rating yet.</p>';
- $('audit-list').innerHTML=priorFeatured.map(x=>{const counts=auditedRatings[x.id.slice(7)];const r=evaluateRating({whole:counts,total:sum(counts),mode:'count'});const reason=r.state==='small'?'under 50 ratings':r.bad===r.good?'low and high tied':'more high than low ratings';return '<li>'+link(x.productUrl,x.name)+' · '+r.total+' total · '+r.bad+' low, '+r.good+' high · '+esc(reason)+'</li>'}).join('');
+ const all=featured.map(x=>({x,r:evaluateRating({whole:x.whole,total:x.total,mode:x.mode})})).filter(({r})=>r.valid&&r.state==='pass'&&r.mode==='count');
+ $('review-filter').hidden=all.length<4;
+ const rows=all.filter(({x})=>value==='all'||x.stars===Number(value));
+ $('review-cards').innerHTML=rows.length?rows.map(({x,r})=>reviewCard(x,r,false)).join(''):'<p class="empty">No listings pass the ratings test yet. Use “Check a product” below to test one you’re wondering about.</p>';
+ const near=nearMisses.map(x=>({x,r:evaluateRating({whole:x.whole,total:x.total,mode:x.mode})})).filter(({r})=>isNearMiss(r));
+ $('near-shelf').hidden=!near.length;
+ $('near-cards').innerHTML=near.map(({x,r})=>reviewCard(x,r,true)).join('');
+ $('audit-list').innerHTML=audit.map(x=>{const r=evaluateRating({whole:x.whole,total:sum(x.whole),mode:'count'});const url=x.productUrl||(x.sku?'https://www.argos.co.uk/product/'+x.sku:'');return '<li>'+link(url,x.name)+' · '+r.total+' total · '+r.bad+' low, '+r.good+' high · '+esc(explain(r))+(x.checked?' · checked '+esc(niceDate(x.checked)):'')+'</li>'}).join('');
 }
+
+/* Archive */
+function caseCard(x){return '<article class="card">'+productThumb(x)+'<header><span class="pill '+esc(x.tone||'')+'">'+esc(x.badge)+'</span></header><p class="number">'+esc(x.label)+'</p><h3>'+esc(x.name)+'</h3><p>'+esc(x.summary)+'</p><details><summary>MWE aside (original, not a review)</summary><div>'+esc(x.angle)+'</div></details>'+listSources(x.sources)+'<div class="actions"><button type="button" class="btn" data-search="'+esc(x.name)+'">Find comments</button></div></article>'}
 function renderCases(){const cat=$('filter').value;$('cases').innerHTML=cases.filter(x=>cat==='all'||x.category===cat).map(caseCard).join('')}
-function hitCard(x){return '<article class="card"><header><span class="pill">'+esc(x.badge)+'</span><span class="number">'+esc(x.date)+'</span></header><h3>'+esc(x.name)+'</h3>'+(x.snippet?'<blockquote>'+esc(x.snippet)+'</blockquote>':'')+listSources(x.sources)+'<div class="actions">'+saveButton(x)+'</div></article>'}
-function setCount(){$('count').textContent=saved.length;$('export').disabled=!saved.length}
-function renderSaved(){
- setCount();
- $('saved').innerHTML=saved.length?saved.map((x,i)=>'<article class="card shortlist-card"><header><span class="pill">'+esc(x.badge)+'</span></header><h3>'+esc(x.name)+'</h3>'+productThumb(x)+(x.summary?'<p>'+esc(x.summary)+'</p>':'')+(x.snippet?'<blockquote>'+esc(x.snippet)+'</blockquote>':'')+(x.angle?'<p class="fine">MWE aside (original) — '+esc(x.angle)+'</p>':'')+listSources(x.sources)+photoControls(i,x)+'<label class="notefield">Your book notes<textarea data-note="'+i+'" maxlength="3000" placeholder="What’s the story here? What still needs checking?">'+esc(x.note||'')+'</textarea></label><div class="actions"><button class="btn" type="button" data-save="'+esc(x.id)+'">Remove</button></div></article>').join(''):'<p class="empty">Nothing shortlisted yet. Save a case file or a live result, or add a review you’ve found elsewhere.</p>';
-}
-function syncSaveButtons(id){document.querySelectorAll('[data-save]').forEach(b=>{if(b.dataset.save===id && b.hasAttribute('aria-pressed')){const on=isSaved(id);b.classList.toggle('accent',!on);b.setAttribute('aria-pressed',on);b.textContent=on?'Saved · remove':'+ Shortlist'}})}
-function showSide(next){side=next;const on=next==='shortlist';$('archive').hidden=on;$('top-reviews').hidden=on;$('shortlist').hidden=!on;$('results').hidden=on||!activeTerm;$('nav').firstChild.textContent=on?'Back to research ':'Book shortlist '; if(on){renderSaved();$('short-title').focus()}else $('q').focus()}
+
+/* Research desk (Hacker News discussion leads) */
+let findings=[],controller=null,activeTerm='';
+function hitCard(x){return '<article class="card"><header><span class="pill">'+esc(x.badge)+'</span><span class="number">'+esc(x.date)+'</span></header><h3>'+esc(x.name)+'</h3>'+(x.snippet?'<blockquote>'+esc(x.snippet)+'</blockquote>':'')+listSources(x.sources)+'</article>'}
 function sourceLinks(q){
  const search=(base,term)=>base+encodeURIComponent(term);
  return [
-   [search('https://www.google.co.uk/search?q=',q+' product review complaints UK'),'UK web reviews'],
-   [search('https://www.google.co.uk/search?q=','site:amazon.co.uk '+q+' customer reviews'),'Amazon UK review pages'],
-   [search('https://www.reddit.com/search/?q=',q+' review'),'Reddit discussions'],
-   [search('https://www.google.co.uk/search?q=','site:which.co.uk '+q+' review'),'Which? tests']
+  [search('https://www.google.co.uk/search?q=',q+' product review complaints UK'),'UK web reviews'],
+  [search('https://www.google.co.uk/search?q=','site:amazon.co.uk '+q+' customer reviews'),'Amazon UK review pages'],
+  [search('https://www.reddit.com/search/?q=',q+' review'),'Reddit discussions'],
+  [search('https://www.google.co.uk/search?q=','site:which.co.uk '+q+' review'),'Which? tests']
  ].map(([url,label])=>link(url,label)).join('');
 }
 const complaint=/\b(worst|awful|poor|bad|terrible|disappoint\w*|useless|overpric\w*|waste\w*|unreliab\w*|regret\w*|flop\w*|return\w*|broke\w*|fail\w*|refund\w*|issues?|problems?|unusable)\b/gi;
@@ -289,13 +134,13 @@ function priority(h){return Math.min(8,(h.text.match(complaint)||[]).length)*2+(
 function convert(h,kind,term){
  const id=String(h.objectID||'');if(!/^\d+$/.test(id))return null;
  const discussion='https://news.ycombinator.com/item?id='+id;
- const name=plain(kind==='comment' ? h.story_title : h.title);
- const text=plain(kind==='comment' ? h.comment_text : h.story_text);
- if(!name && !text || kind==='comment' && !text)return null;
- const date=typeof h.created_at==='string' && /^\d{4}-\d\d-\d\d/.test(h.created_at)?h.created_at.slice(0,10):'';
+ const name=plain(kind==='comment'?h.story_title:h.title);
+ const text=plain(kind==='comment'?h.comment_text:h.story_text);
+ if(!name&&!text||kind==='comment'&&!text)return null;
+ const date=typeof h.created_at==='string'&&/^\d{4}-\d\d-\d\d/.test(h.created_at)?h.created_at.slice(0,10):'';
  const url=webUrl(h.url);
  const badge=kind==='comment'?'Discussion comment':'Story lead';
- const sources=kind==='comment'?[['Original HN comment',date ? date+' · unverified commenter':'Unverified commenter',discussion]]:[['Hacker News thread',date ? date+' · discussion thread':'Discussion thread',discussion],...(url&&url!==discussion?[['Linked article',new URL(url).hostname,url]]:[])];
+ const sources=kind==='comment'?[['Original HN comment',date?date+' · unverified commenter':'Unverified commenter',discussion]]:[['Hacker News thread',date?date+' · discussion thread':'Discussion thread',discussion],...(url&&url!==discussion?[['Linked article',new URL(url).hostname,url]]:[])];
  return {id:'hn-'+id,name:name||'Comment matching '+term,badge,date,snippet:excerpt(text,term),text:name+' '+text,sources};
 }
 async function fetchHits(q,tag,signal){
@@ -310,7 +155,6 @@ async function runSearch(term,focus=false){
  if(controller)controller.abort();
  const current=new AbortController();controller=current;activeTerm=q;findings=[];
  $('q').value=q;
- if(side!=='research')showSide('research');
  $('results').hidden=false;$('results-title').textContent='Results for “'+q+'”';
  $('external').innerHTML=sourceLinks(q);$('hits').replaceChildren();
  $('status').textContent='Looking for stories and discussion comments…';
@@ -330,8 +174,19 @@ async function runSearch(term,focus=false){
  $('hits').innerHTML=findings.map(hitCard).join('');
 }
 function clearSearch(){if(controller)controller.abort();controller=null;activeTerm='';findings=[];$('results').hidden=true;$('q').value='';document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed','false'));$('q').focus()}
-$('filter').addEventListener('change',renderCases);
-$('review-filter').addEventListener('change',renderFeatured);
+
+/* Ratings checker */
+function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50)||'product'}
+function entryFor(result,data,amazon){
+ const name=$('rating-model').value.trim()||'Product name';
+ const today=new Date().toISOString().slice(0,10);
+ const source=amazon?'Amazon UK':'Argos';
+ const base={id:slug(name),name};
+ if(result.state==='pass'||isNearMiss(result)){
+  return {where:result.state==='pass'?'featured':'nearMisses',obj:{...base,stars:1,whole:data.whole,total:result.total,mode:'count',source,checked:today,reviewDate:'',snippet:'',tip:'',reviewNote:'',productUrl:'',sources:[['Rating breakdown and customer reviews','Quoted review · DATE','']]}};
+ }
+ return {where:'audit',obj:{...base,sku:'',whole:data.whole,checked:today}};
+}
 $('rating-discover').addEventListener('submit',e=>{
  e.preventDefault();
  const q=$('rating-model').value.trim();if(!q){$('rating-links').textContent='Enter a product name or model first.';return}
@@ -340,66 +195,29 @@ $('rating-discover').addEventListener('submit',e=>{
 });
 $('rating-form').addEventListener('submit',e=>{
  e.preventDefault();
- const data=parseRatingText($('rating-paste').value), result=evaluateRating(data);
- const output=$('rating-result');output.hidden=false;
+ const data=parseRatingText($('rating-paste').value),result=evaluateRating(data);
+ const output=$('rating-result');output.hidden=false;$('entry-box').hidden=true;$('entry-copied').textContent='';
  const amazon=$('rating-source').value==='amazon';
  if(!result.valid){output.textContent='Couldn’t read a complete breakdown. Paste all five star values in the same format. For percentages, include the total as a separate line, for example “120 global ratings”.';return}
- const title=result.state==='small'?'Not enough ratings.':result.state==='uncertain'?'Too close to call from rounded percentages.':result.state==='no'?'Doesn’t pass. Low ratings don’t outnumber high ratings.':result.mode==='percent'?'Promising lead. Verify the actual counts before featuring.':'Passes on the counts entered. Verify the listing and exact model before featuring.';
+ const titles={small:'Not enough ratings.',uncertain:'Too close to call from rounded percentages.',close:'Too close. Low ratings lead, but by less than a tenth of all ratings.',no:'Doesn’t pass. Low ratings don’t outnumber high ratings.',pass:result.mode==='percent'?'Promising lead. Verify the actual counts before featuring.':'Passes on the counts entered. Verify the listing and exact model before featuring.'};
  const extra=amazon&&result.mode==='percent'?' Amazon’s displayed percentages are weighted, not raw buyer counts.':'';
- output.textContent=title+' '+result.total.toLocaleString('en-GB')+' ratings. '+displayedRating(result)+'.'+extra;
+ output.textContent=titles[result.state]+' '+result.total.toLocaleString('en-GB')+' ratings. '+displayedRating(result)+'.'+extra;
+ if(result.mode==='count'){
+  const {where,obj}=entryFor(result,data,amazon);
+  $('entry-summary').textContent='Add it to the site ('+where+')';
+  $('entry-help').textContent=where==='audit'?'It doesn’t pass, but you can record it in the audit list in data/products.js so the site shows its working. Paste this into the audit array.':'Paste this into the '+where+' array in data/products.js, then fill in the blank fields: the review quote, tip, product link and source link. Add a photo entry under photos if you have one. Update the date to when you read the counts.';
+  $('entry-json').value=JSON.stringify(obj,null,1);$('entry-box').hidden=false;
+ }
 });
+$('entry-copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('entry-json').value);$('entry-copied').textContent='Copied.'}catch{$('entry-json').select();$('entry-copied').textContent='Select and copy the text above.'}});
+
+/* Wiring */
+$('filter').addEventListener('change',renderCases);
+$('review-filter').addEventListener('change',renderFeatured);
 $('search').addEventListener('submit',e=>{e.preventDefault();runSearch($('q').value,true)});
 $('close-results').addEventListener('click',clearSearch);
-$('nav').addEventListener('click',()=>showSide(side==='research'?'shortlist':'research'));
-$('back').addEventListener('click',()=>showSide('research'));
-document.addEventListener('click',e=>{
- const b=e.target.closest('button');if(!b)return;
- if(b.dataset.q||b.dataset.search){runSearch(b.dataset.q||b.dataset.search,true);return}
- const id=b.dataset.save;if(!id)return;
- if(isSaved(id))saved=saved.filter(x=>x.id!==id);
- else{const item=[...featured,...cases,...findings].find(x=>x.id===id);if(!item)return;const {text,...record}=item;saved.unshift({...record,note:'',added:new Date().toISOString().slice(0,10)})}
- persist();setCount();syncSaveButtons(id);if(side==='shortlist'){renderSaved();$('short-title').focus()}
-});
-function resizePhoto(file){
- return new Promise((resolve,reject)=>{
- const object=URL.createObjectURL(file);const image=new Image();
- image.onerror=()=>{URL.revokeObjectURL(object);reject(Error('Could not read that image. Try a JPEG or PNG.'))};
- image.onload=()=>{try{const factor=Math.min(1,480/Math.max(image.naturalHeight,image.naturalWidth));const canv=document.createElement('canvas');canv.width=Math.max(1,Math.round(image.naturalWidth*factor));canv.height=Math.max(1,Math.round(image.naturalHeight*factor));const c=canv.getContext('2d');c.fillStyle='#f9f6ef';c.fillRect(0,0,canv.width,canv.height);c.drawImage(image,0,0,canv.width,canv.height);const data=canv.toDataURL('image/jpeg',0.78);if(!safePhoto(data))throw Error('Could not make a small thumbnail from that image.');resolve(data)}catch(e){reject(e)}finally{URL.revokeObjectURL(object)}};
- image.src=object;
- });
-}
-$('saved').addEventListener('change',async e=>{
- const field=e.target;if(field.dataset.photo===undefined)return;
- const row=saved[Number(field.dataset.photo)];const file=field.files?.[0];if(!row||!file)return;
- const message=field.closest('details').querySelector('[data-photo-status]');
- field.value='';
- if(!/^image\/(jpeg|png|webp|gif|avif)$/.test(file.type)||file.size>15*1024*1024){message.textContent='Choose a supported image of up to 15 MB.';return}
- try{const data=await resizePhoto(file);if(!saved.includes(row))return;const old=row.image;row.image=data;if(!persist()){row.image=old;message.textContent='There isn’t enough space to save this photo in this browser.';return}if(side==='shortlist'){renderSaved();$('short-title').focus()}}catch(err){message.textContent=err.message}
-});
-$('saved').addEventListener('click',e=>{
- const button=e.target.closest('[data-remove-photo]');if(!button)return;
- const row=saved[Number(button.dataset.removePhoto)];if(!row)return;
- delete row.image;persist();renderSaved();$('short-title').focus();
-});
-$('saved').addEventListener('input',e=>{if(e.target.dataset.note!==undefined){const row=saved[Number(e.target.dataset.note)];if(row){row.note=e.target.value;persist()}}});
-$('add').addEventListener('click',()=>{$('entry-error').hidden=true;$('entry').showModal()});
-$('cancel-entry').addEventListener('click',()=>$('entry').close());
-$('lead-form').addEventListener('submit',e=>{
- e.preventDefault();const form=new FormData(e.target);const name=String(form.get('name')).trim();const url=webUrl(form.get('url'));const kind=String(form.get('kind'));const summary=String(form.get('summary')).trim();
- const error=$('entry-error');
- if(!name||!url){error.textContent='Enter a product name and a valid HTTP or HTTPS source link.';error.hidden=false;return}
- if(saved.some(x=>x.name.toLowerCase()===name.toLowerCase() && x.sources.some(s=>s[2]===url))){error.textContent='That product and source are already on your shortlist.';error.hidden=false;return}
- saved.unshift({id:'manual-'+(globalThis.crypto?.randomUUID?.()||Date.now()),name,badge:kind,summary,note:'',added:new Date().toISOString().slice(0,10),sources:[['Original source',kind,url]]});persist();e.target.reset();$('entry').close();showSide('shortlist');
-});
-function exportNotes(items){
- const flat=s=>String(s??'').replace(/[\r\n]+/g,' ').trim();
- const row=x=>['## '+flat(x.name),'',flat(x.badge)+(x.added?' · Added '+flat(x.added):''),'',x.summary?flat(x.summary):'',x.angle?'MWE aside (original) — '+flat(x.angle):'',x.note?'Your notes\n\n'+x.note.trim():'','Sources',...x.sources.map(([label,detail,url])=>'- '+flat(label)+' ('+flat(detail)+') — '+webUrl(url)),''].join('\n');
- return '# Money Wasting Expert — book research\n\nResearch notes, not a manuscript. Recheck dates, model and source context before publication. Third-party review and comment excerpts are not included in this export.\n\n'+items.map(row).join('\n');
-}
-$('export').addEventListener('click',()=>{
- if(!saved.length)return;const blob=new Blob([exportNotes(saved)],{type:'text/markdown;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='MWE-book-notes.md';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-});
-renderFeatured();renderCases();setCount();
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.q||b.dataset.search)runSearch(b.dataset.q||b.dataset.search,true)});
+renderFeatured();renderCases();
 </script>
 </body>
 </html>

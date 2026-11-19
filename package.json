@@ -1,0 +1,6 @@
+{
+  "name": "money-wasting-expert",
+  "private": true,
+  "description": "Static GitHub Pages site. No build step. npm test runs the ratings checks.",
+  "scripts": { "test": "node tests/rating.test.js" }
+}
